@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sabor de Casa — Mercado brasileiro no Japão</title>
+<meta name="description" content="Amostra de design: mercado de produtos brasileiros e importados com entrega em todo o Japão.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#fffaf0;--bg2:#fdf1d7;--card:#fff;--line:rgba(122,84,10,.14);--ink:#2f2a1a;--muted:#8a7c55;--green:#2f7d46;--green-dark:#236035;--yellow:#f2b705;--radius:20px}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font-family:'Inter',sans-serif;overflow-x:hidden;line-height:1.6}
+  img{max-width:100%;display:block}
+  h1,h2,h3{font-family:'Sora',sans-serif;line-height:1.15;letter-spacing:-.01em}
+  h1 em,h2 em{font-style:normal;color:var(--green)}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 22px}
+  header{position:fixed;inset:0 0 auto 0;z-index:50;transition:background .4s,border-color .4s;border-bottom:1px solid transparent}
+  header.scrolled{background:rgba(255,250,240,.9);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-color:var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+  .logo{font-family:'Sora';font-weight:800;font-size:1.22rem}
+  .logo span{color:var(--green)}
+  .logo i{font-style:normal;color:var(--yellow)}
+  .nav nav{display:flex;gap:30px}
+  .nav nav a{color:var(--muted);text-decoration:none;font-size:.93rem;font-weight:500}
+  .nav nav a:hover{color:var(--ink)}
+  .btn{display:inline-flex;align-items:center;gap:9px;background:var(--green);color:#fff;font-weight:600;text-decoration:none;padding:13px 24px;border-radius:999px;font-size:.95rem;transition:transform .25s,background .25s,box-shadow .25s}
+  .btn:hover{background:var(--green-dark);transform:translateY(-2px);box-shadow:0 14px 28px rgba(47,125,70,.3)}
+  .btn.ghost{background:transparent;color:var(--ink);border:1px solid rgba(47,42,26,.3);box-shadow:none}
+  .btn.ghost:hover{border-color:var(--green);color:var(--green-dark);background:transparent}
+  .nav .btn{padding:10px 19px}
+  @media(max-width:760px){.nav nav{display:none}}
+  .hero{position:relative;padding:150px 0 84px;overflow:hidden}
+  .hero::before{content:"";position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(242,183,5,.18),transparent 65%);top:-190px;right:-140px}
+  .hero-grid{position:relative;display:grid;grid-template-columns:1.02fr .98fr;gap:54px;align-items:center}
+  @media(max-width:900px){.hero-grid{grid-template-columns:1fr}}
+  .kicker{display:inline-block;border:1px solid rgba(47,125,70,.45);color:var(--green-dark);border-radius:999px;padding:6px 15px;font-size:.8rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;background:rgba(255,255,255,.6)}
+  .hero h1{font-size:clamp(2.35rem,5.3vw,4rem);margin:22px 0 18px}
+  .hero p.lead{color:var(--muted);font-size:1.07rem;max-width:32rem}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin:30px 0 18px}
+  .hero small.note{color:var(--muted);font-size:.87rem}
+  .hero-photo{position:relative}
+  .hero-photo .frame{border-radius:26px;overflow:hidden;border:1px solid var(--line);box-shadow:0 34px 70px rgba(122,84,10,.18)}
+  .hero-photo img{width:100%;aspect-ratio:1600/1150;object-fit:cover;animation:slowzoom 16s ease-in-out infinite alternate}
+  @keyframes slowzoom{from{transform:scale(1)}to{transform:scale(1.06)}}
+  .glass-card{position:absolute;left:-12px;bottom:30px;background:rgba(255,255,255,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.85);border-radius:16px;padding:14px 18px;box-shadow:0 22px 44px rgba(122,84,10,.18)}
+  .glass-card b{font-size:.95rem}
+  .glass-card small{display:block;color:var(--muted);font-size:.79rem;margin-top:2px}
+  @media(max-width:520px){.glass-card{left:8px;bottom:10px}}
+  .marquee{border-block:1px solid var(--line);padding:15px 0;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent)}
+  .marquee-track{display:flex;gap:40px;width:max-content;animation:scroll 28s linear infinite;font-family:'Sora';font-weight:700;font-size:.98rem;color:var(--green-dark);letter-spacing:.05em}
+  .marquee-track b{color:var(--yellow)}
+  @keyframes scroll{to{transform:translateX(-50%)}}
+  section{padding:92px 0}
+  .sec-head{max-width:640px;margin-bottom:46px}
+  .sec-head .tag{color:var(--green);font-weight:600;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase}
+  .sec-head h2{font-size:clamp(1.9rem,3.8vw,2.7rem);margin:12px 0 12px}
+  .sec-head p{color:var(--muted)}
+  .products{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:18px}
+  .prod{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px;transition:transform .3s,box-shadow .3s}
+  .prod:hover{transform:translateY(-5px);box-shadow:0 20px 40px rgba(122,84,10,.13)}
+  .prod .cat{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--yellow);color:#c79404}
+  .prod h3{font-size:1rem;margin:7px 0 3px}
+  .prod p{color:var(--muted);font-size:.85rem}
+  .prod .price{margin-top:12px;font-family:'Sora';font-weight:800;font-size:1.25rem;color:var(--green-dark)}
+  .gallery-sec{background:var(--bg2);border-block:1px solid var(--line)}
+  .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:22px}
+  .gallery figure{border-radius:var(--radius);overflow:hidden;position:relative;border:1px solid var(--line)}
+  .gallery img{aspect-ratio:1260/750;object-fit:cover;transition:transform .7s cubic-bezier(.2,.7,.2,1);width:100%}
+  .gallery figure:hover img{transform:scale(1.06)}
+  .gallery figcaption{position:absolute;inset:auto 0 0 0;padding:30px 16px 12px;background:linear-gradient(transparent,rgba(38,32,10,.75));color:#fff;font-size:.88rem;font-weight:500}
+  .info{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:22px}
+  .info article{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:28px 24px}
+  .info .num{font-family:'Sora';font-weight:800;color:var(--yellow);color:#c79404;font-size:1.05rem}
+  .info h3{font-size:1.12rem;margin:10px 0 8px}
+  .info p{color:var(--muted);font-size:.93rem}
+  .cta-final{background:linear-gradient(125deg,#e3f0e6,#fffaf0 60%);border:1px solid rgba(47,125,70,.35);border-radius:26px;padding:56px 40px;text-align:center}
+  .cta-final h2{font-size:clamp(1.8rem,3.6vw,2.5rem);margin-bottom:12px}
+  .cta-final p{color:var(--muted);max-width:31rem;margin:0 auto 28px}
+  footer{border-top:1px solid var(--line);padding:38px 0;color:var(--muted);font-size:.86rem}
+  footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+  .reveal.d1{transition-delay:.08s}.reveal.d2{transition-delay:.16s}.reveal.d3{transition-delay:.24s}
+  @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<header id="topo">
+  <div class="wrap nav">
+    <div class="logo">Sabor <span>de</span> Casa<i>.</i></div>
+    <nav><a href="#produtos">Produtos</a><a href="#loja">A loja</a><a href="#entrega">Entrega</a></nav>
+    <a class="btn" href="#contato">Pedir pelo WhatsApp</a>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="kicker reveal in">Kosai · entrega em todo o Japão</span>
+      <h1 class="reveal in">O gostinho do Brasil, <em>perto de você</em>.</h1>
+      <p class="lead reveal in">Feijão carioca, pão de queijo, guaraná e tudo que bate a saudade. Loja física em Kosai e envio pra qualquer canto do Japão.</p>
+      <div class="hero-cta reveal in">
+        <a class="btn" href="#produtos">Ver os produtos</a>
+        <a class="btn ghost" href="#entrega">Como entrega</a>
+      </div>
+      <small class="note reveal in">Aberto todos os dias, das 9h às 20h · Estacionamento na porta</small>
+    </div>
+    <div class="hero-photo reveal in">
+      <div class="frame"><img src="img/hero.jpg" alt="Prateleiras cheias de produtos no mercado"></div>
+      <div class="glass-card">
+        <b>Compra acima de ¥8.000</b>
+        <small>frete grátis pra Shizuoka e Aichi</small>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>FEIJÃO CARIOCA <b>•</b> PÃO DE QUEIJO <b>•</b> GUARANÁ <b>•</b> FARINHA DE MANDIOCA <b>•</b> CAFÉ PILÃO <b>•</b> TAPIOCA <b>•</b> LINGUIÇA CALABRESA <b>•</b> LEITE CONDENSADO <b>•</b></span>
+    <span>FEIJÃO CARIOCA <b>•</b> PÃO DE QUEIJO <b>•</b> GUARANÁ <b>•</b> FARINHA DE MANDIOCA <b>•</b> CAFÉ PILÃO <b>•</b> TAPIOCA <b>•</b> LINGUIÇA CALABRESA <b>•</b> LEITE CONDENSADO <b>•</b></span>
+  </div>
+</div>
+
+<section id="produtos">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="tag">Mais pedidos</div>
+      <h2>Os queridinhos <em>da semana</em></h2>
+      <p>Preço da prateleira, igualzinho ao da loja. Pediu no WhatsApp, a gente separa na hora.</p>
+    </div>
+    <div class="products">
+      <article class="prod reveal"><div class="cat">Despensa</div><h3>Feijão carioca</h3><p>Pacote de 1 kg</p><div class="price">¥780</div></article>
+      <article class="prod reveal d1"><div class="cat">Congelados</div><h3>Pão de queijo</h3><p>Congelado, pacote de 800 g</p><div class="price">¥980</div></article>
+      <article class="prod reveal d2"><div class="cat">Bebidas</div><h3>Guaraná Antarctica</h3><p>Lata de 350 ml</p><div class="price">¥220</div></article>
+      <article class="prod reveal d3"><div class="cat">Despensa</div><h3>Farinha de mandioca</h3><p>Torradinha, pacote de 500 g</p><div class="price">¥650</div></article>
+      <article class="prod reveal"><div class="cat">Café da manhã</div><h3>Café Pilão</h3><p>Torrado e moído, 500 g</p><div class="price">¥1.450</div></article>
+      <article class="prod reveal d1"><div class="cat">Café da manhã</div><h3>Goma de tapioca</h3><p>Pronta pra frigideira, 500 g</p><div class="price">¥720</div></article>
+      <article class="prod reveal d2"><div class="cat">Carnes</div><h3>Linguiça calabresa</h3><p>Defumada, cerca de 400 g</p><div class="price">¥1.280</div></article>
+      <article class="prod reveal d3"><div class="cat">Doces</div><h3>Leite condensado</h3><p>Lata de 395 g, pro brigadeiro</p><div class="price">¥380</div></article>
+    </div>
+  </div>
+</section>
+
+<section class="gallery-sec" id="loja">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="tag">A loja</div>
+      <h2>Passa aqui <em>tomar um café</em></h2>
+      <p>Loja de bairro, com cheiro de pão de queijo saindo do forno e conversa em português.</p>
+    </div>
+    <div class="gallery">
+      <figure class="reveal"><img src="img/m1.jpg" alt="Corredor de enlatados do mercado"><figcaption>Despensa completa, do feijão ao azeite de dendê</figcaption></figure>
+      <figure class="reveal d1"><img src="img/m2.jpg" alt="Corredor de bebidas do mercado"><figcaption>Bebidas do Brasil e do mundo</figcaption></figure>
+      <figure class="reveal d2"><img src="img/m3.jpg" alt="Prateleira de salgadinhos e doces"><figcaption>Salgadinhos e doces que você não acha no konbini</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section id="entrega">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="tag">Entrega e encomenda</div>
+      <h2>Longe da loja? <em>A gente manda</em></h2>
+    </div>
+    <div class="info">
+      <article class="reveal"><div class="num">01</div><h3>Envio pra todo o Japão</h3><p>Pedido feito até as 14h sai no mesmo dia, congelado em caixa térmica. Frete calculado pelo seu cep.</p></article>
+      <article class="reveal d1"><div class="num">02</div><h3>Encomenda de festa</h3><p>Coxinha, bolo e salgados pra aniversário e reunião da igreja. Encomenda com 3 dias de antecedência.</p></article>
+      <article class="reveal d2"><div class="num">03</div><h3>Não achou? A gente importa</h3><p>Produto específico do Brasil ou de outro país, a gente traz na próxima importação. Deixa o pedido registrado no balcão.</p></article>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="cta-final reveal" id="contato">
+      <h2>Bora matar <em>a saudade</em>?</h2>
+      <p>Chama no WhatsApp com sua lista. A gente separa, confirma o valor e você só passa pra buscar ou recebe em casa.</p>
+      <a class="btn" href="#contato">Mandar minha lista</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>© 2026 Sabor de Casa · Kosai, Shizuoka</div>
+    <div>Amostra de design criada pela SatoTech. Mercado, produtos e preços são fictícios, só pra demonstração. Fotos: Pexels.</div>
+  </div>
+</footer>
+
+<script>
+  const header = document.getElementById('topo');
+  addEventListener('scroll', () => header.classList.toggle('scrolled', scrollY > 24), {passive:true});
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+  }), {threshold: .15});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>

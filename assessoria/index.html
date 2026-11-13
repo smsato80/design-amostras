@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ponte JP — Assessoria para brasileiros no Japão</title>
+<meta name="description" content="Amostra de design: assessoria de vistos, tradução de documentos e abertura de empresa para brasileiros no Japão.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#f6f9fd;--bg2:#e9f0f9;--card:#fff;--line:rgba(24,58,110,.13);--ink:#16283f;--muted:#5f748e;--blue:#2456a6;--blue-dark:#1a417e;--sky:#5b93dd;--radius:18px}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font-family:'Inter',sans-serif;overflow-x:hidden;line-height:1.6}
+  img{max-width:100%;display:block}
+  h1,h2,h3{font-family:'Archivo',sans-serif;line-height:1.16;letter-spacing:-.01em}
+  h1 em,h2 em{font-style:normal;color:var(--blue)}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 22px}
+  header{position:fixed;inset:0 0 auto 0;z-index:50;transition:background .4s,border-color .4s;border-bottom:1px solid transparent}
+  header.scrolled{background:rgba(246,249,253,.9);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-color:var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+  .logo{font-family:'Archivo';font-weight:800;font-size:1.22rem}
+  .logo span{color:var(--blue)}
+  .nav nav{display:flex;gap:30px}
+  .nav nav a{color:var(--muted);text-decoration:none;font-size:.93rem;font-weight:500}
+  .nav nav a:hover{color:var(--ink)}
+  .btn{display:inline-flex;align-items:center;gap:9px;background:var(--blue);color:#fff;font-weight:600;text-decoration:none;padding:13px 24px;border-radius:999px;font-size:.95rem;transition:transform .25s,background .25s,box-shadow .25s}
+  .btn:hover{background:var(--blue-dark);transform:translateY(-2px);box-shadow:0 14px 28px rgba(36,86,166,.3)}
+  .btn.ghost{background:transparent;color:var(--ink);border:1px solid rgba(22,40,63,.3);box-shadow:none}
+  .btn.ghost:hover{border-color:var(--blue);color:var(--blue-dark);background:transparent}
+  .nav .btn{padding:10px 19px}
+  @media(max-width:760px){.nav nav{display:none}}
+  .hero{position:relative;padding:150px 0 84px;overflow:hidden}
+  .hero::before{content:"";position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(91,147,221,.18),transparent 65%);top:-190px;right:-140px}
+  .hero-grid{position:relative;display:grid;grid-template-columns:1.02fr .98fr;gap:54px;align-items:center}
+  @media(max-width:900px){.hero-grid{grid-template-columns:1fr}}
+  .kicker{display:inline-block;border:1px solid rgba(36,86,166,.4);color:var(--blue-dark);border-radius:999px;padding:6px 15px;font-size:.8rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;background:rgba(255,255,255,.6)}
+  .hero h1{font-size:clamp(2.3rem,5.2vw,3.9rem);margin:22px 0 18px}
+  .hero p.lead{color:var(--muted);font-size:1.07rem;max-width:32rem}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin:30px 0 18px}
+  .hero small.note{color:var(--muted);font-size:.87rem}
+  .hero-photo{position:relative}
+  .hero-photo .frame{border-radius:24px;overflow:hidden;border:1px solid var(--line);box-shadow:0 34px 70px rgba(24,58,110,.18)}
+  .hero-photo img{width:100%;aspect-ratio:1600/1150;object-fit:cover;animation:slowzoom 16s ease-in-out infinite alternate}
+  @keyframes slowzoom{from{transform:scale(1)}to{transform:scale(1.06)}}
+  .glass-card{position:absolute;left:-12px;bottom:30px;background:rgba(255,255,255,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.85);border-radius:16px;padding:14px 18px;box-shadow:0 22px 44px rgba(24,58,110,.17)}
+  .glass-card b{font-size:.95rem}
+  .glass-card small{display:block;color:var(--muted);font-size:.79rem;margin-top:2px}
+  @media(max-width:520px){.glass-card{left:8px;bottom:10px}}
+  section{padding:92px 0}
+  .sec-head{max-width:640px;margin-bottom:46px}
+  .sec-head .tag{color:var(--blue);font-weight:600;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase}
+  .sec-head h2{font-size:clamp(1.85rem,3.7vw,2.65rem);margin:12px 0 12px}
+  .sec-head p{color:var(--muted)}
+  .svc{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px}
+  .svc article{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:28px 24px;transition:transform .35s,box-shadow .35s}
+  .svc article:hover{transform:translateY(-5px);box-shadow:0 24px 46px rgba(24,58,110,.12)}
+  .svc .ico{width:48px;height:48px;border-radius:14px;background:rgba(91,147,221,.15);display:grid;place-items:center;margin-bottom:15px}
+  .svc svg{width:24px;height:24px;stroke:var(--blue);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+  .svc h3{font-size:1.08rem;margin-bottom:8px}
+  .svc p{color:var(--muted);font-size:.92rem;min-height:3.4em}
+  .svc .price{margin-top:13px;font-family:'Archivo';font-weight:700;font-size:1.22rem;color:var(--blue-dark)}
+  .svc .price small{font-family:'Inter';font-size:.78rem;color:var(--muted);font-weight:500}
+  .steps-sec{background:var(--bg2);border-block:1px solid var(--line)}
+  .about{display:grid;grid-template-columns:.95fr 1.05fr;gap:52px;align-items:center}
+  @media(max-width:900px){.about{grid-template-columns:1fr}}
+  .about .frame{border-radius:22px;overflow:hidden;border:1px solid var(--line);box-shadow:0 30px 60px rgba(24,58,110,.15)}
+  .about img{aspect-ratio:1260/750;object-fit:cover;width:100%}
+  .about h2{font-size:clamp(1.85rem,3.6vw,2.55rem);margin-bottom:16px}
+  .about p{color:var(--muted);margin-bottom:14px}
+  .about ul{list-style:none}
+  .about li{padding:9px 0;border-bottom:1px dashed var(--line);font-size:.96rem;display:flex;gap:10px}
+  .about li::before{content:"✓";color:var(--blue);font-weight:700}
+  .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:22px}
+  .steps article{padding:6px 2px}
+  .steps .num{font-family:'Archivo';font-weight:800;font-size:1.9rem;color:var(--sky)}
+  .steps h3{font-size:1.05rem;margin:8px 0 6px}
+  .steps p{color:var(--muted);font-size:.93rem}
+  .cta-final{background:linear-gradient(125deg,#dde9f8,#f6f9fd 60%);border:1px solid rgba(36,86,166,.32);border-radius:24px;padding:56px 40px;text-align:center}
+  .cta-final h2{font-size:clamp(1.75rem,3.5vw,2.45rem);margin-bottom:12px}
+  .cta-final p{color:var(--muted);max-width:31rem;margin:0 auto 28px}
+  footer{border-top:1px solid var(--line);padding:38px 0;color:var(--muted);font-size:.86rem}
+  footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+  .reveal.d1{transition-delay:.08s}.reveal.d2{transition-delay:.16s}.reveal.d3{transition-delay:.24s}
+  @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<header id="topo">
+  <div class="wrap nav">
+    <div class="logo">Ponte <span>JP</span></div>
+    <nav><a href="#servicos">Serviços</a><a href="#como">Como funciona</a><a href="#limites">Transparência</a></nav>
+    <a class="btn" href="#contato">Primeira conversa grátis</a>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="kicker reveal in">Hamamatsu · atende online todo o Japão</span>
+      <h1 class="reveal in">A burocracia do Japão, <em>explicada</em> em português.</h1>
+      <p class="lead reveal in">Visto, tradução, abertura de empresa e papelada de prefeitura sem você precisar adivinhar nada. A gente monta o processo e acompanha até o fim.</p>
+      <div class="hero-cta reveal in">
+        <a class="btn" href="#contato">Marcar a conversa gratuita</a>
+        <a class="btn ghost" href="#servicos">Ver serviços e preços</a>
+      </div>
+      <small class="note reveal in">Primeira conversa de 20 min sem custo e sem compromisso</small>
+    </div>
+    <div class="hero-photo reveal in">
+      <div class="frame"><img src="img/hero.jpg" alt="Aperto de mãos sobre documentos em uma mesa de escritório"></div>
+      <div class="glass-card">
+        <b>+600 processos acompanhados</b>
+        <small>Vistos, traduções e empresas desde 2019</small>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section id="servicos">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="tag">Serviços e preços</div>
+      <h2>Valor fechado <em>por processo</em></h2>
+      <p>Você sabe quanto custa antes de começar. Se o seu caso não tiver solução honesta, a gente fala na primeira conversa.</p>
+    </div>
+    <div class="svc">
+      <article class="reveal">
+        <div class="ico"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h4"/></svg></div>
+        <h3>Visto e renovação</h3>
+        <p>Renovação, troca de status, visto de cônjuge e permanente. Conferimos cada documento antes de protocolar.</p>
+        <div class="price">¥33.000 <small>a partir de · por processo</small></div>
+      </article>
+      <article class="reveal d1">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M5 8h9M8 5v3c0 3-1.5 5.5-3.5 7M6.5 11c1.2 2 3 3.8 5 4.8"/><path d="m13 21 4.5-9L22 21M14.8 17.5h5.4"/></svg></div>
+        <h3>Tradução de documentos</h3>
+        <p>Certidões, contratos, diplomas e documentos da prefeitura, em português e japonês, com revisão de nativo.</p>
+        <div class="price">¥3.300 <small>por página · padrão</small></div>
+      </article>
+      <article class="reveal d2">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V8l7-5 7 5v13"/><path d="M10 21v-5h4v5M9 11h.01M15 11h.01"/></svg></div>
+        <h3>Abertura de empresa</h3>
+        <p>Empresa individual ou godo kaisha: registro, conta bancária, nota fiscal e os primeiros passos com o contador.</p>
+        <div class="price">¥55.000 <small>a partir de · assessoria completa</small></div>
+      </article>
+      <article class="reveal d3">
+        <div class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4.5-6 8-6s7 2 8 6"/></svg></div>
+        <h3>Vida prática</h3>
+        <p>My Number, conta em banco, carteira de motorista, inscrição na prefeitura e na escola das crianças.</p>
+        <div class="price">¥11.000 <small>a partir de · por pacote</small></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="steps-sec" id="como">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="tag">Como funciona</div>
+      <h2>Sem idas e vindas <em>à toa</em></h2>
+    </div>
+    <div class="steps">
+      <article class="reveal"><div class="num">1</div><h3>Conversa gratuita</h3><p>Você conta o caso em português. A gente diz se dá pra resolver, quanto custa e quanto tempo leva.</p></article>
+      <article class="reveal d1"><div class="num">2</div><h3>Lista de documentos</h3><p>Você recebe uma lista simples, item por item, do que juntar. Nada de papel descoberto na hora H.</p></article>
+      <article class="reveal d2"><div class="num">3</div><h3>A gente acompanha</h3><p>Protocolamos com você ou por você, quando a lei permite, e avisamos cada etapa até a conclusão.</p></article>
+    </div>
+  </div>
+</section>
+
+<section id="limites">
+  <div class="wrap about">
+    <div class="frame reveal"><img src="img/f1.jpg" alt="Profissionais apertando as mãos sobre uma mesa com papéis"></div>
+    <div class="reveal d1">
+      <h2>Transparência <em>desde o começo</em></h2>
+      <p>Assessoria não é advocacia nem despachante oficial. Pra você contratar com os olhos abertos:</p>
+      <ul>
+        <li>Atos que exigem profissional licenciado são feitos com parceiros licenciados (gyoseishoshi e tradutores)</li>
+        <li>Nenhuma promessa de aprovação de visto: quem decide é a Imigração</li>
+        <li>Contrato de serviço em português, com escopo e prazo escritos</li>
+        <li>Seu documento fica com você: trabalhamos com cópias autenticadas quando basta</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="cta-final reveal" id="contato">
+      <h2>Conta seu caso <em>pra gente</em></h2>
+      <p>Chama no WhatsApp e marca a conversa gratuita de 20 minutos. Sem compromisso e sem juridiquês.</p>
+      <a class="btn" href="#contato">Marcar conversa gratuita</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>© 2026 Ponte JP · Hamamatsu, Shizuoka</div>
+    <div>Amostra de design criada pela SatoTech. Empresa, preços e números são fictícios, só pra demonstração. Fotos: Pexels.</div>
+  </div>
+</footer>
+
+<script>
+  const header = document.getElementById('topo');
+  addEventListener('scroll', () => header.classList.toggle('scrolled', scrollY > 24), {passive:true});
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+  }), {threshold: .15});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>

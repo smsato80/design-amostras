@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FrescoLar — Instalação e limpeza de ar-condicionado</title>
+<meta name="description" content="Amostra de design: instalação, limpeza e manutenção de ar-condicionado para brasileiros no Japão.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#f2f9fd;--card:#fff;--line:rgba(14,90,140,.13);--ink:#12303f;--muted:#5b7a89;--blue:#0e7cc4;--blue-dark:#0a5f96;--aqua:#39c2d7;--radius:20px}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font-family:'Inter',sans-serif;overflow-x:hidden;line-height:1.6}
+  img{max-width:100%;display:block}
+  h1,h2,h3{font-family:'Poppins',sans-serif;line-height:1.16;letter-spacing:-.01em}
+  h1 em,h2 em{font-style:normal;color:var(--blue)}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 22px}
+  header{position:fixed;inset:0 0 auto 0;z-index:50;transition:background .4s,border-color .4s;border-bottom:1px solid transparent}
+  header.scrolled{background:rgba(242,249,253,.88);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-color:var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+  .logo{font-family:'Poppins';font-weight:700;font-size:1.25rem}
+  .logo span{color:var(--blue)}
+  .nav nav{display:flex;gap:30px}
+  .nav nav a{color:var(--muted);text-decoration:none;font-size:.93rem;font-weight:500}
+  .nav nav a:hover{color:var(--ink)}
+  .btn{display:inline-flex;align-items:center;gap:9px;background:var(--blue);color:#fff;font-weight:600;text-decoration:none;padding:13px 24px;border-radius:999px;font-size:.95rem;transition:transform .25s,background .25s,box-shadow .25s}
+  .btn:hover{background:var(--blue-dark);transform:translateY(-2px);box-shadow:0 14px 28px rgba(14,124,196,.3)}
+  .btn.ghost{background:transparent;color:var(--ink);border:1px solid rgba(18,48,63,.3);box-shadow:none}
+  .btn.ghost:hover{border-color:var(--blue);color:var(--blue-dark);background:transparent}
+  .nav .btn{padding:10px 19px}
+  @media(max-width:760px){.nav nav{display:none}}
+  .hero{position:relative;padding:150px 0 84px;overflow:hidden}
+  .hero::before{content:"";position:absolute;width:640px;height:640px;border-radius:50%;background:radial-gradient(circle,rgba(57,194,215,.2),transparent 65%);top:-200px;right:-140px}
+  .hero-grid{position:relative;display:grid;grid-template-columns:1.02fr .98fr;gap:54px;align-items:center}
+  @media(max-width:900px){.hero-grid{grid-template-columns:1fr}}
+  .kicker{display:inline-block;border:1px solid rgba(14,124,196,.4);color:var(--blue-dark);border-radius:999px;padding:6px 15px;font-size:.8rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;background:rgba(255,255,255,.6)}
+  .hero h1{font-size:clamp(2.3rem,5.2vw,3.9rem);margin:22px 0 18px}
+  .hero p.lead{color:var(--muted);font-size:1.07rem;max-width:32rem}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin:30px 0 18px}
+  .hero small.note{color:var(--muted);font-size:.87rem}
+  .hero-photo{position:relative}
+  .hero-photo .frame{border-radius:26px;overflow:hidden;border:1px solid var(--line);box-shadow:0 34px 70px rgba(14,90,140,.2)}
+  .hero-photo img{width:100%;aspect-ratio:1600/1150;object-fit:cover;animation:slowzoom 16s ease-in-out infinite alternate}
+  @keyframes slowzoom{from{transform:scale(1)}to{transform:scale(1.06)}}
+  .glass-card{position:absolute;left:-12px;bottom:30px;background:rgba(255,255,255,.78);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.85);border-radius:16px;padding:14px 18px;box-shadow:0 22px 44px rgba(14,90,140,.18)}
+  .glass-card b{font-size:.95rem}
+  .glass-card small{display:block;color:var(--muted);font-size:.79rem;margin-top:2px}
+  .glass-card .big{font-family:'Poppins';font-size:1.3rem;color:var(--blue-dark)}
+  @media(max-width:520px){.glass-card{left:8px;bottom:10px}}
+  section{padding:92px 0}
+  .sec-head{max-width:640px;margin-bottom:46px}
+  .sec-head .tag{color:var(--blue);font-weight:600;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase}
+  .sec-head h2{font-size:clamp(1.85rem,3.7vw,2.65rem);margin:12px 0 12px}
+  .sec-head p{color:var(--muted)}
+  .svc{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px}
+  .svc article{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:30px 26px;transition:transform .35s,box-shadow .35s}
+  .svc article:hover{transform:translateY(-6px);box-shadow:0 26px 48px rgba(14,90,140,.13)}
+  .svc .ico{width:50px;height:50px;border-radius:15px;background:rgba(57,194,215,.16);display:grid;place-items:center;margin-bottom:16px}
+  .svc svg{width:25px;height:25px;stroke:var(--blue);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+  .svc h3{font-size:1.12rem;margin-bottom:8px}
+  .svc p{color:var(--muted);font-size:.93rem;min-height:3.4em}
+  .svc .price{margin-top:14px;font-family:'Poppins';font-weight:700;font-size:1.3rem;color:var(--blue-dark)}
+  .svc .price small{font-family:'Inter';font-size:.79rem;color:var(--muted);font-weight:500}
+  .steps{background:#e7f3fa;border-block:1px solid var(--line)}
+  .steps-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:22px}
+  .steps-grid article{padding:8px 4px}
+  .steps-grid .num{font-family:'Poppins';font-weight:700;font-size:2rem;color:var(--aqua)}
+  .steps-grid h3{font-size:1.08rem;margin:8px 0 6px}
+  .steps-grid p{color:var(--muted);font-size:.93rem}
+  .about{display:grid;grid-template-columns:.95fr 1.05fr;gap:52px;align-items:center}
+  @media(max-width:900px){.about{grid-template-columns:1fr}}
+  .about .frame{border-radius:24px;overflow:hidden;border:1px solid var(--line);box-shadow:0 30px 60px rgba(14,90,140,.16)}
+  .about img{aspect-ratio:1260/750;object-fit:cover;width:100%}
+  .about h2{font-size:clamp(1.85rem,3.6vw,2.55rem);margin-bottom:16px}
+  .about p{color:var(--muted);margin-bottom:14px}
+  .about ul{list-style:none}
+  .about li{padding:9px 0;border-bottom:1px dashed var(--line);font-size:.96rem;display:flex;gap:10px}
+  .about li::before{content:"✓";color:var(--blue);font-weight:700}
+  .cta-final{background:linear-gradient(125deg,#dff2fb,#f2f9fd 60%);border:1px solid rgba(14,124,196,.3);border-radius:26px;padding:56px 40px;text-align:center}
+  .cta-final h2{font-size:clamp(1.75rem,3.5vw,2.45rem);margin-bottom:12px}
+  .cta-final p{color:var(--muted);max-width:31rem;margin:0 auto 28px}
+  footer{border-top:1px solid var(--line);padding:38px 0;color:var(--muted);font-size:.86rem}
+  footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+  .reveal.d1{transition-delay:.08s}.reveal.d2{transition-delay:.16s}.reveal.d3{transition-delay:.24s}
+  @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<header id="topo">
+  <div class="wrap nav">
+    <div class="logo">Fresco<span>Lar</span></div>
+    <nav><a href="#servicos">Serviços</a><a href="#como">Como funciona</a><a href="#sobre">Quem faz</a></nav>
+    <a class="btn" href="#contato">Pedir orçamento</a>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="kicker reveal in">Hamamatsu e região · atende em português</span>
+      <h1 class="reveal in">Ar-condicionado instalado e limpo, <em>sem dor de cabeça</em>.</h1>
+      <p class="lead reveal in">Instalação caprichada, limpeza que tira o mofo de verdade e manutenção com preço fechado antes de começar. Você só aproveita o ar geladinho.</p>
+      <div class="hero-cta reveal in">
+        <a class="btn" href="#contato">Pedir orçamento no WhatsApp</a>
+        <a class="btn ghost" href="#servicos">Ver preços</a>
+      </div>
+      <small class="note reveal in">Orçamento gratuito pela foto do local · Parcelamos no cartão</small>
+    </div>
+    <div class="hero-photo reveal in">
+      <div class="frame"><img src="img/hero.jpg" alt="Técnico instalando unidade externa de ar-condicionado"></div>
+      <div class="glass-card">
+        <div class="big">+900</div>
+        <b>aparelhos instalados e limpos</b>
+        <small>Nota 4,9 em 260 avaliações</small>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section id="servicos">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="tag">Serviços e preços</div>
+      <h2>Preço fechado <em>antes</em> da visita</h2>
+      <p>Nada de surpresa no fim do serviço. Os valores abaixo já incluem o deslocamento em Hamamatsu.</p>
+    </div>
+    <div class="svc">
+      <article class="reveal">
+        <div class="ico"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="9" rx="2"/><path d="M2 9h20M6 17c1 1.4 2 1.4 3 0M11 17c1 1.4 2 1.4 3 0M16 17c1 1.4 2 1.4 3 0"/></svg></div>
+        <h3>Instalação completa</h3>
+        <p>Aparelho novo ou usado, com tubulação, suporte e teste de vazamento. Furo na parede incluso.</p>
+        <div class="price">¥16.500 <small>a partir de · por aparelho</small></div>
+      </article>
+      <article class="reveal d1">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/><circle cx="12" cy="12" r="3.2"/></svg></div>
+        <h3>Limpeza completa</h3>
+        <p>Desmontagem, lavagem com produto antimofo e antibacteriano. Some o cheiro ruim e o ar volta a gelar.</p>
+        <div class="price">¥11.000 <small>por aparelho</small></div>
+      </article>
+      <article class="reveal d2">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M4 14c2-1 4 1 6 0s4 1 6 0 3-1 4 0"/><path d="M12 4v6M8.5 7 12 10.5 15.5 7"/></svg></div>
+        <h3>Limpeza simples</h3>
+        <p>Filtros, tampa e saída de ar higienizados. Pra manutenção rápida entre uma completa e outra.</p>
+        <div class="price">¥7.700 <small>por aparelho</small></div>
+      </article>
+      <article class="reveal d3">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M3 13h18"/></svg></div>
+        <h3>Retirada e reinstalação</h3>
+        <p>Vai se mudar? Retiramos com cuidado, guardamos o gás e reinstalamos na casa nova.</p>
+        <div class="price">¥13.200 <small>a partir de · retirada</small></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="steps" id="como">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="tag">Como funciona</div>
+      <h2>Três passos e <em>pronto</em></h2>
+    </div>
+    <div class="steps-grid">
+      <article class="reveal"><div class="num">1</div><h3>Foto pelo WhatsApp</h3><p>Você manda a foto do aparelho e do local. A gente confirma o valor fechado, sem compromisso.</p></article>
+      <article class="reveal d1"><div class="num">2</div><h3>Dia e hora marcados</h3><p>Agendamos no seu melhor horário, inclusive sábado. Chegamos com tudo que precisa.</p></article>
+      <article class="reveal d2"><div class="num">3</div><h3>Serviço e garantia</h3><p>Protegemos o chão e os móveis, fazemos o serviço e deixamos tudo limpo. Garantia de 6 meses na instalação.</p></article>
+    </div>
+  </div>
+</section>
+
+<section id="sobre">
+  <div class="wrap about">
+    <div class="frame reveal"><img src="img/tec.jpg" alt="Técnico trabalhando em unidade de ar-condicionado em telhado"></div>
+    <div class="reveal d1">
+      <h2>Quem instala é <em>quem atende</em> você</h2>
+      <p>Nada de call center. Você fala direto com o técnico, em português, do orçamento até a garantia.</p>
+      <ul>
+        <li>Atendemos Hamamatsu, Kosai, Iwata e Fukuroi</li>
+        <li>Todas as marcas: Daikin, Panasonic, Fujitsu, Mitsubishi e outras</li>
+        <li>Nota fiscal e garantia por escrito</li>
+        <li>Pagamento em dinheiro, cartão ou transferência</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="cta-final reveal" id="contato">
+      <h2>Seu ar merece <em>esse cuidado</em></h2>
+      <p>Manda a foto do aparelho no WhatsApp e recebe o orçamento fechado ainda hoje.</p>
+      <a class="btn" href="#contato">Chamar no WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>© 2026 FrescoLar · Hamamatsu, Shizuoka</div>
+    <div>Amostra de design criada pela SatoTech. Empresa, preços e números são fictícios, só pra demonstração. Fotos: Pexels.</div>
+  </div>
+</footer>
+
+<script>
+  const header = document.getElementById('topo');
+  addEventListener('scroll', () => header.classList.toggle('scrolled', scrollY > 24), {passive:true});
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+  }), {threshold: .15});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
