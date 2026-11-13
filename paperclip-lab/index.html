@@ -46,7 +46,7 @@
 <h2>O site que a equipe criou</h2>
 <p>Landing page bilíngue, em português e japonês, para uma empresa fictícia de reformas e ar-condicionado em Hamamatsu. Abra e navegue: o botão de idioma no topo troca a página inteira sem recarregar.</p>
 <a class="btn" href="../takumi/">Abrir o site da Takumi</a>
-<p style="font-size:14px;color:#5c574a;">Arquivo idêntico ao entregue pelo Codex e aprovado pelo QA. SHA-256: <code>76ee88fd4ad8915de6e9f29f68386e3d6a69ae5e2b36ca2b6f07eeae63d99995</code></p>
+<p style="font-size:14px;color:#5c574a;">Arquivo idêntico ao entregue pelo Codex e aprovado pelo QA. SHA-256: <code>5c0850cafa8eaf628b867e00dee2fc418077f5f7444f683098c326183868fbe1</code></p>
 
 <h2>A equipe</h2>
 <div class="card">
@@ -115,6 +115,22 @@
     <li>O painel ao vivo segue só na VM do laboratório, sem exposição pública, porque ele controla agentes e roda sem senha neste modo de teste.</li>
   </ul>
 </div>
+
+<h2>Painel remontado (rodada 2, noite de 13/11)</h2>
+<p>A máquina do Muse foi trocada duas vezes depois do primeiro teste e o painel vivo se perdeu nas duas, porque o banco de dados ficava fora da pasta que sobrevive. A pedido do Minoru, o escritório foi montado de novo e a missão foi reexecutada de verdade: prova de autenticação refeita pelo Codex, entrega verificada com hash, e o QA aprovou de novo, 12 de 12 itens, testando num navegador real.</p>
+<p>Desta vez ficou a lição aplicada: existe uma cópia do banco guardada na pasta do projeto e um comando único de religar. O ciclo foi testado apagando o banco vivo e os programas: um comando trouxe tudo de volta, empresa ativa e as 5 tarefas concluídas, sem reconfigurar nada.</p>
+<figure>
+  <img src="img/r2-painel-tarefas.png" alt="Painel remontado com as cinco tarefas concluídas">
+  <figcaption>O painel remontado: as 5 tarefas da missão concluídas (CON-1 a CON-5).</figcaption>
+</figure>
+<figure>
+  <img src="img/r2-tarefa-qa.png" alt="Tarefa de revisão do QA na rodada 2">
+  <figcaption>A tarefa do QA na rodada 2, com o veredito de aprovação registrado.</figcaption>
+</figure>
+<figure>
+  <img src="img/r2-painel-agentes.png" alt="Agentes da empresa remontada">
+  <figcaption>Os agentes da empresa remontada. Sem o agente preso em pausa da rodada 1: desta vez os agentes nasceram com o disparo desligado e cada execução foi liberada pelo diretor, uma por vez.</figcaption>
+</figure>
 
 <footer>
   Conecta+ LAB · SatoTech. Página de registro de um teste fechado com empresa e dados fictícios.
