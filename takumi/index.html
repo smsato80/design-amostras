@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Página de demonstração da Takumi, empresa fictícia de reformas e ar-condicionado em Hamamatsu.">
+  <title>Takumi | Reformas &amp; Ar-Condicionado</title>
+  <style>
+    :root { color-scheme: light; --ink:#183b38; --muted:#4c625d; --paper:#f7f5ef; --accent:#a44424; --line:#d4dcd4; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; background:var(--paper); color:var(--ink); font-family:system-ui,-apple-system,"Segoe UI",sans-serif; line-height:1.6; }
+    a { color:inherit; text-underline-offset:4px; }
+    button,input,select,textarea { font:inherit; }
+    button,a,input,select,textarea { -webkit-tap-highlight-color:transparent; }
+    :focus-visible { outline:3px solid #b34414; outline-offset:5px; }
+    .wrap { width:min(1120px,100% - 40px); margin-inline:auto; }
+    .skip { position:absolute; top:-100px; left:20px; background:white; padding:12px; z-index:2; }
+    .skip:focus { top:12px; }
+    .topbar { display:flex; align-items:center; justify-content:space-between; gap:16px; padding-block:22px; border-bottom:1px solid var(--line); }
+    .brand { font-size:25px; font-weight:850; letter-spacing:.12em; }
+    .brand small { display:block; font-size:11px; letter-spacing:.08em; color:var(--muted); }
+    .language { border:1px solid var(--ink); background:transparent; color:var(--ink); border-radius:30px; padding:10px 16px; cursor:pointer; flex-shrink:0; }
+    .hero { padding-block:70px; display:grid; grid-template-columns:1.5fr 1fr; gap:56px; align-items:center; }
+    .eyebrow { text-transform:uppercase; letter-spacing:.13em; font-size:12px; font-weight:750; color:var(--accent); margin:0 0 18px; }
+    h1 { font-size:clamp(34px,5.2vw,60px); line-height:1.12; letter-spacing:-.035em; max-width:740px; margin:0 0 24px; overflow-wrap:anywhere; }
+    h2 { font-size:clamp(26px,3vw,36px); line-height:1.25; margin:0 0 18px; letter-spacing:-.025em; }
+    h3 { font-size:20px; line-height:1.35; margin:18px 0 10px; }
+    p { margin:0 0 18px; }
+    .intro { color:var(--muted); max-width:540px; font-size:18px; }
+    .button { display:inline-block; background:var(--ink); color:white; padding:13px 23px; border:0; border-radius:6px; font-weight:650; text-decoration:none; cursor:pointer; }
+    .hero-note { background:#e6ebe1; padding:32px; border-radius:8px; border-top:5px solid var(--ink); }
+    .symbol { font-size:56px; line-height:1; margin-bottom:28px; display:block; }
+    .hero-note strong { display:block; font-size:24px; margin-bottom:10px; }
+    .hero-note p { color:var(--muted); }
+    .phone { font-size:22px; font-weight:700; white-space:nowrap; }
+    .section { padding-block:54px; border-top:1px solid var(--line); }
+    .section-lead { color:var(--muted); max-width:620px; }
+    .cards { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; margin-top:28px; }
+    .card { padding:26px; background:white; border:1px solid var(--line); border-radius:8px; }
+    .number { color:var(--accent); font-size:13px; font-weight:750; }
+    .card p { color:var(--muted); margin-bottom:0; }
+    .area { display:grid; grid-template-columns:1fr 1fr; gap:40px; }
+    .quote { margin:0; padding:28px; background:#e6ebe1; border-radius:8px; }
+    blockquote { margin:12px 0; font-size:19px; }
+    figcaption { font-size:14px; color:var(--muted); }
+    .contact { display:grid; grid-template-columns:1fr 1.3fr; gap:60px; }
+    .notice { font-size:14px; color:var(--muted); }
+    form { min-width:0; }
+    .fields { display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+    label { display:block; font-weight:650; margin-bottom:6px; }
+    input,select,textarea { display:block; width:100%; min-width:0; color:var(--ink); background:white; border:1px solid #81928b; border-radius:5px; padding:12px; }
+    .full { grid-column:1 / -1; }
+    textarea { resize:vertical; min-height:120px; }
+    form .notice { margin-block:16px; }
+    #result { margin-top:16px; font-weight:700; }
+    footer { padding-block:26px; background:var(--ink); color:#fff; font-size:14px; }
+    .footer-row { display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; }
+    footer p { margin:0; }
+    @media(max-width:700px) {
+      .hero { grid-template-columns:1fr; gap:28px; padding-block:40px; }
+      .cards,.area,.contact { grid-template-columns:1fr; gap:20px; }
+      .section { padding-block:36px; }
+      .hero-note { padding:24px; }
+      .symbol { display:none; }
+      .fields { grid-template-columns:1fr; }
+      .topbar { align-items:center; }
+      .brand { font-size:22px; }
+      .language { padding:10px 12px; }
+    }
+    @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main" data-i18n="skip">Ir para o conteúdo</a>
+  <header class="wrap topbar">
+    <div class="brand">TAKUMI<small data-i18n="brand">REFORMAS &amp; AR-CONDICIONADO</small></div>
+    <button class="language" id="language" type="button" aria-label="Alterar idioma para japonês">PT / 日本語</button>
+  </header>
+  <main id="main" class="wrap">
+    <section class="hero" aria-labelledby="hero-title">
+      <div>
+        <p class="eyebrow" data-i18n="location">Hamamatsu, Shizuoka</p>
+        <h1 id="hero-title" data-i18n="title">Takumi Reformas &amp; Ar-Condicionado</h1>
+        <p class="intro" data-i18n="slogan">Cuidado com a sua casa, do ar-condicionado aos pequenos reparos.</p>
+        <a class="button" href="#contato" data-i18n="cta">Conte o que precisa</a>
+      </div>
+      <aside class="hero-note">
+        <span class="symbol" aria-hidden="true">匠</span>
+        <strong data-i18n="noteTitle">Vamos conversar sobre o reparo.</strong>
+        <p data-i18n="noteText">Diga o que aconteceu e em qual bairro você está. Assim, entendemos o serviço antes de combinar uma visita.</p>
+        <span class="phone">090-0000-0000</span>
+        <p class="notice" data-i18n="fakePhone">Telefone fictício para demonstração.</p>
+      </aside>
+    </section>
+    <section class="section" aria-labelledby="services-title">
+      <p class="eyebrow" data-i18n="servicesLabel">O que fazemos</p>
+      <h2 id="services-title" data-i18n="servicesTitle">Serviços para o dia a dia da casa</h2>
+      <div class="cards">
+        <article class="card"><span class="number" aria-hidden="true">01</span><h3 data-i18n="airTitle">Ar-condicionado</h3><p data-i18n="airText">Instalação e manutenção. Conte o modelo do aparelho e o que precisa ser feito.</p></article>
+        <article class="card"><span class="number" aria-hidden="true">02</span><h3 data-i18n="repairTitle">Reformas leves</h3><p data-i18n="repairText">Pequenos reparos e ajustes em casa, como pintura de paredes e troca de acabamentos.</p></article>
+        <article class="card"><span class="number" aria-hidden="true">03</span><h3 data-i18n="waterTitle">Encanamento simples</h3><p data-i18n="waterText">Troca de torneiras e reparos em pequenos vazamentos. Descreva onde está o problema.</p></article>
+      </div>
+    </section>
+    <section class="section area" aria-labelledby="area-title">
+      <div><p class="eyebrow" data-i18n="areaLabel">Perto de você</p><h2 id="area-title" data-i18n="areaTitle">Hamamatsu e região</h2><p class="section-lead" data-i18n="areaText">Atendimento em Hamamatsu e cidades próximas, em Shizuoka. Informe seu bairro para consultar a possibilidade de visita.</p></div>
+      <figure class="quote"><p class="eyebrow" data-i18n="quoteLabel">Depoimento fictício · Demonstração</p><blockquote data-i18n="quoteText">“Expliquei o problema do ar-condicionado e combinamos o que seria feito antes da visita.”</blockquote><figcaption data-i18n="quoteAuthor">Marina, personagem fictícia de Hamamatsu.</figcaption></figure>
+    </section>
+    <section class="section contact" id="contato" aria-labelledby="contact-title">
+      <div><p class="eyebrow" data-i18n="contactLabel">Fale sobre o serviço</p><h2 id="contact-title" data-i18n="contactTitle">O que precisa de atenção?</h2><p class="section-lead" data-i18n="contactText">Escolha um serviço e descreva o reparo. Este exemplo serve apenas para conhecer o formulário.</p><p class="notice" data-i18n="contactNotice">Use dados fictícios. Nenhuma informação será enviada ou salva.</p></div>
+      <form id="contact-form" aria-describedby="form-notice">
+        <div class="fields">
+          <div><label for="name" data-i18n="name">Nome</label><input id="name" type="text" autocomplete="off" required maxlength="100"></div>
+          <div><label for="phone" data-i18n="phone">Telefone</label><input id="phone" type="tel" autocomplete="off" required maxlength="30"></div>
+          <div class="full"><label for="service" data-i18n="service">Tipo de serviço</label><select id="service" required><option value="" data-i18n="choose">Selecione um serviço</option><option value="air" data-i18n="airTitle">Ar-condicionado</option><option value="repair" data-i18n="repairTitle">Reformas leves</option><option value="water" data-i18n="waterTitle">Encanamento simples</option></select></div>
+          <div class="full"><label for="message" data-i18n="message">Mensagem</label><textarea id="message" required maxlength="2000"></textarea></div>
+        </div>
+        <p id="form-notice" class="notice" data-i18n="formNotice">Este é um formulário de demonstração. Os dados não serão enviados.</p>
+        <button type="submit" class="button" data-i18n="submit">Testar formulário</button>
+        <p id="result" role="status" aria-live="polite" hidden></p>
+      </form>
+    </section>
+  </main>
+  <footer><div class="wrap footer-row"><p data-i18n="footer">Página de demonstração. Empresa fictícia.</p><p data-i18n="footerPlace">Takumi · Hamamatsu, Shizuoka</p></div></footer>
+  <script>
+    'use strict';
+    const japanese = {
+      skip:'本文へ移動', brand:'リフォーム・エアコン', location:'静岡県浜松市',
+      title:'匠 リフォーム・エアコン', slogan:'エアコンから小さな修理まで、住まいのお手入れを。',
+      cta:'ご相談内容を入力', noteTitle:'修理についてお聞かせください。',
+      noteText:'お困りの内容とお住まいの地区を教えてください。作業内容を確認してから訪問の相談をします。',
+      fakePhone:'デモ用の架空の電話番号です。', servicesLabel:'対応する作業', servicesTitle:'住まいの日常のお手入れ',
+      airTitle:'エアコン', airText:'エアコンの設置・メンテナンス。機種とご希望の作業をお知らせください。',
+      repairTitle:'小規模リフォーム', repairText:'壁の塗装や内装材の交換など、住まいの小さな修理や調整。',
+      waterTitle:'簡単な水まわり修理', waterText:'蛇口の交換や小さな水漏れの修理。問題のある場所をお知らせください。',
+      areaLabel:'お近くの地域で', areaTitle:'浜松市とその周辺',
+      areaText:'静岡県浜松市と近隣の市に対応。訪問できるか確認するため、お住まいの地区をお知らせください。',
+      quoteLabel:'架空のお客様の声・デモ', quoteText:'「エアコンの不具合を伝え、訪問前に作業内容を相談できました。」',
+      quoteAuthor:'マリナ、浜松市の架空の人物。', contactLabel:'作業のご相談', contactTitle:'どのようなお困りごとですか？',
+      contactText:'作業の種類を選び、修理内容をご入力ください。このサンプルはフォームの体験用です。',
+      contactNotice:'架空の情報をご入力ください。入力内容は送信・保存されません。',
+      name:'お名前', phone:'電話番号', service:'作業の種類', choose:'作業を選択してください', message:'ご相談内容',
+      formNotice:'これはデモ用フォームです。入力内容は送信されません。', submit:'フォームを試す',
+      footer:'デモページです。実在しない架空の会社です。', footerPlace:'匠・静岡県浜松市'
+    };
+    const nodes = [...document.querySelectorAll('[data-i18n]')];
+    const portuguese = Object.fromEntries(nodes.map(node => [node.dataset.i18n, node.textContent]));
+    const copy = {
+      'pt-BR': {text:portuguese, title:document.title, description:document.querySelector('meta[name="description"]').content, switchLabel:'Alterar idioma para japonês', result:'Este é um formulário de demonstração. Nenhum dado foi enviado ou salvo.'},
+      ja: {text:japanese, title:'匠 | リフォーム・エアコン', description:'静岡県浜松市の架空のリフォーム・エアコン会社「匠」のデモページです。', switchLabel:'ポルトガル語に切り替える', result:'これはデモ用フォームです。入力内容は送信・保存されていません。'}
+    };
+    const languageButton = document.getElementById('language');
+    const result = document.getElementById('result');
+    languageButton.addEventListener('click', () => {
+      const lang = document.documentElement.lang === 'pt-BR' ? 'ja' : 'pt-BR';
+      const current = copy[lang];
+      document.documentElement.lang = lang;
+      document.title = current.title;
+      document.querySelector('meta[name="description"]').content = current.description;
+      nodes.forEach(node => { node.textContent = current.text[node.dataset.i18n]; });
+      languageButton.setAttribute('aria-label', current.switchLabel);
+      if (!result.hidden) result.textContent = current.result;
+    });
+    document.getElementById('contact-form').addEventListener('submit', event => {
+      event.preventDefault();
+      result.textContent = copy[document.documentElement.lang].result;
+      result.hidden = false;
+    });
+  </script>
+</body>
+</html>

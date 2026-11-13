@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Conecta+ LAB: teste do Paperclip com Muse e Codex</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, "Segoe UI", Roboto, "Hiragino Sans", sans-serif; background: #f6f4ef; color: #23211c; line-height: 1.55; }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 28px 18px 48px; }
+  header { padding: 26px 0 8px; }
+  .tag { display: inline-block; background: #e9e2d0; color: #6b5b23; font-size: 13px; font-weight: 600; padding: 4px 12px; border-radius: 999px; }
+  h1 { font-size: 30px; line-height: 1.2; margin: 14px 0 10px; }
+  h2 { font-size: 21px; margin: 34px 0 12px; }
+  p { margin-bottom: 12px; }
+  .veredito { background: #fff; border: 1px solid #e3ddcd; border-left: 5px solid #3d7a44; border-radius: 10px; padding: 16px 18px; margin: 18px 0 6px; }
+  .veredito strong { color: #2c5c33; }
+  .btn { display: inline-block; background: #1f4d8f; color: #fff; text-decoration: none; font-weight: 700; padding: 14px 22px; border-radius: 10px; margin: 10px 0 4px; }
+  .btn:active { opacity: .85; }
+  .card { background: #fff; border: 1px solid #e3ddcd; border-radius: 10px; padding: 16px 18px; margin-bottom: 12px; }
+  ul { padding-left: 20px; }
+  li { margin-bottom: 7px; }
+  .ok { color: #2c5c33; font-weight: 700; }
+  figure { margin: 0 0 20px; }
+  figure img { width: 100%; height: auto; display: block; border: 1px solid #ddd6c4; border-radius: 10px; }
+  figcaption { font-size: 14px; color: #5c574a; margin-top: 7px; }
+  .duas { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 560px) { .duas { grid-template-columns: 1fr; } h1 { font-size: 25px; } }
+  footer { margin-top: 40px; font-size: 13px; color: #8a8474; border-top: 1px solid #e3ddcd; padding-top: 14px; }
+  code { background: #efece2; padding: 1px 6px; border-radius: 5px; font-size: 13px; word-break: break-all; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <span class="tag">SatoTech · registro de teste · 13/11/2026</span>
+  <h1>Conecta+ LAB: uma equipe de agentes trabalhando no Paperclip</h1>
+  <p>Teste fechado feito na VM do Muse, com dados fictícios. O Muse coordenou a equipe pelo Paperclip, o Codex construiu o site e um segundo agente Codex revisou tudo como QA. Nenhum sistema de cliente foi tocado.</p>
+</header>
+
+<div class="veredito">
+  <p><strong>Veredito:</strong> a integração Muse, Paperclip e Codex funcionou de ponta a ponta. As 5 tarefas da missão foram concluídas, o QA aprovou a entrega em 12 de 12 itens e o custo em dinheiro foi zero, porque o trabalho consumiu a assinatura ChatGPT que já existe.</p>
+</div>
+
+<h2>O site que a equipe criou</h2>
+<p>Landing page bilíngue, em português e japonês, para uma empresa fictícia de reformas e ar-condicionado em Hamamatsu. Abra e navegue: o botão de idioma no topo troca a página inteira sem recarregar.</p>
+<a class="btn" href="../takumi/">Abrir o site da Takumi</a>
+<p style="font-size:14px;color:#5c574a;">Arquivo idêntico ao entregue pelo Codex e aprovado pelo QA. SHA-256: <code>76ee88fd4ad8915de6e9f29f68386e3d6a69ae5e2b36ca2b6f07eeae63d99995</code></p>
+
+<h2>A equipe</h2>
+<div class="card">
+  <ul>
+    <li><strong>Muse, Diretor de Operações:</strong> criou a empresa, o projeto, as tarefas e as dependências no Paperclip, acompanhou as execuções e consolidou o resultado.</li>
+    <li><strong>Codex, Desenvolvedor:</strong> construiu a landing page dentro do workspace do projeto, usando o login ChatGPT existente.</li>
+    <li><strong>QA, Revisor:</strong> segundo agente Codex, com identidade separada. Abriu a página num navegador de verdade e testou item por item.</li>
+    <li><strong>Gerente de Projetos:</strong> papel organizacional, dono do plano e do acompanhamento da missão.</li>
+  </ul>
+</div>
+
+<h2>As tarefas da missão</h2>
+<div class="card">
+  <ul>
+    <li>CONA-1 · Prova de autenticação do Codex · <span class="ok">concluída</span></li>
+    <li>CONA-2 · Plano e acompanhamento da missão · <span class="ok">concluída</span></li>
+    <li>CONA-3 · Landing page bilíngue PT/JA da Takumi · <span class="ok">concluída</span></li>
+    <li>CONA-4 · Revisão do QA contra o checklist · <span class="ok">concluída, 12 de 12 itens</span></li>
+    <li>CONA-5 · Consolidação e apresentação ao proprietário · <span class="ok">concluída</span></li>
+  </ul>
+</div>
+
+<h2>Capturas do painel</h2>
+<figure>
+  <img src="img/painel-tarefas.png" alt="Painel do Paperclip com as tarefas da missão">
+  <figcaption>O quadro de tarefas da Conecta+ LAB no Paperclip, com responsáveis e status.</figcaption>
+</figure>
+<figure>
+  <img src="img/tarefa-qa.png" alt="Detalhe da tarefa de revisão do QA">
+  <figcaption>A tarefa do QA aberta, com o veredito registrado item por item.</figcaption>
+</figure>
+<figure>
+  <img src="img/agentes.png" alt="Lista de agentes da empresa">
+  <figcaption>Os agentes da empresa. O primeiro Codex da lista ficou pausado por um defeito de ciclo de vida e foi substituído; ele aparece no painel como evidência.</figcaption>
+</figure>
+
+<h2>O site no celular</h2>
+<div class="duas">
+  <figure>
+    <img src="img/site-pt.png" alt="Site da Takumi em português no celular">
+    <figcaption>Versão em português, tela de 390px.</figcaption>
+  </figure>
+  <figure>
+    <img src="img/site-ja.png" alt="Site da Takumi em japonês no celular">
+    <figcaption>Versão em japonês, depois do clique no botão de idioma.</figcaption>
+  </figure>
+</div>
+
+<h2>Tempo, custo e recursos</h2>
+<div class="card">
+  <ul>
+    <li>Tempo total do teste: cerca de 55 minutos, da auditoria ao relatório.</li>
+    <li>A missão em si: uns 4 minutos de desenvolvimento e uns 5 minutos de revisão.</li>
+    <li>Custo em dinheiro: US$ 0. Uso de modelo registrado como assinatura ChatGPT.</li>
+    <li>Servidor do laboratório: cerca de 865 MB de memória. Banco de dados: 34 MB.</li>
+  </ul>
+</div>
+
+<h2>Limitações encontradas, sem maquiagem</h2>
+<div class="card">
+  <ul>
+    <li>O motor padrão do Paperclip para o Codex falhou com a conta ChatGPT. Funcionou trocando para o motor CLI com o Codex oficial.</li>
+    <li>Um agente ficou preso no estado de pausa e precisou ser substituído por um novo.</li>
+    <li>Orçamento zero nos papéis sem modelo pausou a empresa inteira até o ajuste. Os portões de orçamento funcionam, até demais.</li>
+    <li>Papéis externos, como o Muse e o Gerente de Projetos, não escrevem nas tarefas fora de uma execução própria. Eles atuaram pelo quadro, com os registros assinados como do operador.</li>
+    <li>O painel ao vivo segue só na VM do laboratório, sem exposição pública, porque ele controla agentes e roda sem senha neste modo de teste.</li>
+  </ul>
+</div>
+
+<footer>
+  Conecta+ LAB · SatoTech. Página de registro de um teste fechado com empresa e dados fictícios.
+</footer>
+
+</div>
+</body>
+</html>
