@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Studio Luna — Unhas em Hamamatsu</title>
+<meta name="description" content="Amostra de design: estúdio de unhas com atendimento em português, hora marcada e acabamento caprichado.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#faf6f0; --bg2:#f3ece2; --card:#ffffff; --line:rgba(64,44,32,.12);
+    --ink:#33261d; --muted:#857463; --rose:#b76e79; --rose-dark:#9d5561; --sage:#8a9a7b;
+    --radius:20px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font-family:'Inter',sans-serif;overflow-x:hidden;line-height:1.6}
+  img{max-width:100%;display:block}
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:600;line-height:1.14;letter-spacing:-.01em}
+  h1 em,h2 em{font-style:italic;color:var(--rose)}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 22px}
+
+  /* ---------- nav de vidro clara ---------- */
+  header{position:fixed;inset:0 0 auto 0;z-index:50;transition:background .4s,border-color .4s,box-shadow .4s;border-bottom:1px solid transparent}
+  header.scrolled{background:rgba(250,246,240,.78);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-color:var(--line);box-shadow:0 10px 30px rgba(64,44,32,.06)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+  .logo{font-family:'Fraunces',serif;font-size:1.3rem;font-weight:600}
+  .logo span{color:var(--rose)}
+  .nav nav{display:flex;gap:30px}
+  .nav nav a{color:var(--muted);text-decoration:none;font-size:.93rem;font-weight:500;transition:color .25s}
+  .nav nav a:hover{color:var(--ink)}
+  .btn{display:inline-flex;align-items:center;gap:9px;background:var(--rose);color:#fff;font-weight:600;text-decoration:none;padding:13px 24px;border-radius:999px;font-size:.95rem;transition:transform .25s,background .25s,box-shadow .25s}
+  .btn:hover{background:var(--rose-dark);transform:translateY(-2px);box-shadow:0 14px 28px rgba(183,110,121,.3)}
+  .btn.ghost{background:transparent;color:var(--ink);border:1px solid rgba(64,44,32,.3);box-shadow:none}
+  .btn.ghost:hover{border-color:var(--rose);color:var(--rose-dark);background:transparent}
+  .nav .btn{padding:10px 19px}
+  @media(max-width:760px){.nav nav{display:none}}
+
+  /* ---------- hero ---------- */
+  .hero{position:relative;padding:152px 0 30px;overflow:hidden}
+  .hero::before{content:"";position:absolute;width:560px;height:560px;border-radius:50%;background:radial-gradient(circle,rgba(183,110,121,.16),transparent 65%);top:-160px;right:-120px}
+  .hero::after{content:"";position:absolute;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(138,154,123,.14),transparent 65%);bottom:-180px;left:-120px}
+  .hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.02fr .98fr;gap:54px;align-items:center}
+  @media(max-width:900px){.hero-grid{grid-template-columns:1fr}}
+  .kicker{display:inline-block;border:1px solid rgba(183,110,121,.45);color:var(--rose-dark);border-radius:999px;padding:6px 15px;font-size:.8rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;background:rgba(255,255,255,.55)}
+  .hero h1{font-size:clamp(2.5rem,5.4vw,4.2rem);margin:22px 0 18px}
+  .hero p.lead{color:var(--muted);font-size:1.08rem;max-width:32rem}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin:30px 0 20px}
+  .hero small.note{color:var(--muted);font-size:.86rem}
+  .hero-photo{position:relative}
+  .hero-photo .frame{border-radius:170px 170px 24px 24px;overflow:hidden;border:1px solid var(--line);box-shadow:0 34px 70px rgba(64,44,32,.18)}
+  .hero-photo img{width:100%;aspect-ratio:1600/1180;object-fit:cover;animation:slowzoom 16s ease-in-out infinite alternate}
+  @keyframes slowzoom{from{transform:scale(1)}to{transform:scale(1.06)}}
+  .glass-card{position:absolute;right:-10px;bottom:34px;background:rgba(255,255,255,.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.8);border-radius:16px;padding:14px 18px;box-shadow:0 22px 44px rgba(64,44,32,.16);max-width:250px}
+  .glass-card .stars{color:var(--rose);letter-spacing:2px;font-size:.85rem}
+  .glass-card b{font-size:.95rem}
+  .glass-card small{display:block;color:var(--muted);font-size:.78rem;margin-top:2px}
+  .chip-float{position:absolute;left:-12px;top:44px;background:rgba(255,255,255,.8);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.85);border-radius:999px;padding:9px 16px;font-size:.82rem;font-weight:600;box-shadow:0 16px 34px rgba(64,44,32,.14)}
+  .chip-float i{color:var(--sage);font-style:normal}
+  @media(max-width:520px){.glass-card{right:8px;bottom:10px}.chip-float{left:8px;top:14px}}
+
+  /* ---------- faixa de texto em loop ---------- */
+  .marquee{margin-top:74px;border-block:1px solid var(--line);padding:16px 0;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent)}
+  .marquee-track{display:flex;gap:44px;width:max-content;animation:scroll 26s linear infinite;font-family:'Fraunces',serif;font-style:italic;font-size:1.12rem;color:var(--rose-dark)}
+  .marquee-track span{display:flex;gap:44px;align-items:center}
+  .marquee-track b{color:var(--sage);font-style:normal;font-size:.8rem}
+  @keyframes scroll{to{transform:translateX(-50%)}}
+
+  /* ---------- seções ---------- */
+  section{padding:92px 0}
+  .sec-head{max-width:620px;margin-bottom:46px}
+  .sec-head .tag{color:var(--rose);font-weight:600;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase}
+  .sec-head h2{font-size:clamp(1.9rem,3.8vw,2.7rem);margin:12px 0 12px}
+  .sec-head p{color:var(--muted)}
+
+  .svc{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px}
+  .svc article{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:30px 26px;transition:transform .35s,box-shadow .35s}
+  .svc article:hover{transform:translateY(-6px) rotate(-.4deg);box-shadow:0 26px 48px rgba(64,44,32,.12)}
+  .svc .num{font-family:'Fraunces',serif;font-style:italic;color:var(--rose);font-size:1.05rem}
+  .svc h3{font-size:1.22rem;margin:10px 0 8px}
+  .svc p{color:var(--muted);font-size:.93rem;min-height:3.2em}
+  .svc .price{margin-top:16px;font-family:'Fraunces',serif;font-size:1.35rem;font-weight:600}
+  .svc .price small{font-family:'Inter';font-size:.8rem;color:var(--muted);font-weight:500}
+
+  .gallery-sec{background:var(--bg2);border-block:1px solid var(--line)}
+  .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:22px}
+  .gallery figure{border-radius:var(--radius);overflow:hidden;position:relative;border:1px solid var(--line)}
+  .gallery img{aspect-ratio:900/1100;object-fit:cover;transition:transform .7s cubic-bezier(.2,.7,.2,1)}
+  .gallery figure:hover img{transform:scale(1.07)}
+  .gallery figcaption{position:absolute;inset:auto 0 0 0;padding:34px 18px 14px;background:linear-gradient(transparent,rgba(43,32,24,.72));color:#fff;font-size:.88rem;font-weight:500;opacity:0;transform:translateY(8px);transition:opacity .4s,transform .4s}
+  .gallery figure:hover figcaption{opacity:1;transform:none}
+
+  .about{display:grid;grid-template-columns:.92fr 1.08fr;gap:52px;align-items:center}
+  @media(max-width:900px){.about{grid-template-columns:1fr}}
+  .about .frame{border-radius:24px;overflow:hidden;border:1px solid var(--line);box-shadow:0 30px 60px rgba(64,44,32,.14)}
+  .about img{aspect-ratio:1260/750;object-fit:cover;width:100%}
+  .about h2{font-size:clamp(1.9rem,3.6vw,2.6rem);margin-bottom:16px}
+  .about p{color:var(--muted);margin-bottom:14px}
+  .about ul{list-style:none;margin-top:8px}
+  .about li{padding:9px 0;border-bottom:1px dashed var(--line);font-size:.96rem;display:flex;gap:10px}
+  .about li::before{content:"✿";color:var(--rose)}
+
+  .cta-final{background:linear-gradient(125deg,#f7e8e9,#faf6f0 60%);border:1px solid rgba(183,110,121,.35);border-radius:26px;padding:56px 40px;text-align:center}
+  .cta-final h2{font-size:clamp(1.8rem,3.6vw,2.5rem);margin-bottom:12px}
+  .cta-final p{color:var(--muted);max-width:30rem;margin:0 auto 28px}
+
+  footer{border-top:1px solid var(--line);padding:38px 0;color:var(--muted);font-size:.86rem}
+  footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+  /* ---------- animação de entrada ---------- */
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+  .reveal.d1{transition-delay:.08s}.reveal.d2{transition-delay:.16s}.reveal.d3{transition-delay:.24s}
+  @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<header id="topo">
+  <div class="wrap nav">
+    <div class="logo">Studio <span>Luna</span></div>
+    <nav>
+      <a href="#servicos">Serviços</a>
+      <a href="#galeria">Galeria</a>
+      <a href="#sobre">O estúdio</a>
+    </nav>
+    <a class="btn" href="#agendar">Agendar horário</a>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="kicker reveal in">Hamamatsu · hora marcada</span>
+      <h1 class="reveal in">Unhas bonitas, <em>sem pressa</em> e sem estresse.</h1>
+      <p class="lead reveal in">Um cantinho tranquilo pra você cuidar das mãos, com atendimento em português e acabamento que dura de verdade.</p>
+      <div class="hero-cta reveal in">
+        <a class="btn" href="#agendar">Reservar meu horário</a>
+        <a class="btn ghost" href="#servicos">Ver serviços e preços</a>
+      </div>
+      <small class="note reveal in">Terça a sábado, das 10h às 19h · Atendimento com hora marcada</small>
+    </div>
+    <div class="hero-photo reveal in">
+      <div class="frame"><img src="img/hero.jpg" alt="Manicure fazendo as unhas de uma cliente"></div>
+      <div class="chip-float"><i>●</i> Agenda aberta esta semana</div>
+      <div class="glass-card">
+        <div class="stars">★★★★★</div>
+        <b>"A unha dura o mês inteiro"</b>
+        <small>4,9 · 208 avaliações de clientes</small>
+      </div>
+    </div>
+  </div>
+
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Gel <b>✿</b> Nail art <b>✿</b> Alongamento <b>✿</b> Francesinha <b>✿</b> Spa das mãos <b>✿</b> Pedicure <b>✿</b></span>
+      <span>Gel <b>✿</b> Nail art <b>✿</b> Alongamento <b>✿</b> Francesinha <b>✿</b> Spa das mãos <b>✿</b> Pedicure <b>✿</b></span>
+    </div>
+  </div>
+</div>
+
+<section id="servicos">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="tag">Serviços e preços</div>
+      <h2>Preço fechado, <em>sem surpresa</em> no caixa</h2>
+      <p>Você escolhe, a gente faz com calma. Remoção do gel antigo já incluída nos serviços de gel.</p>
+    </div>
+    <div class="svc">
+      <article class="reveal">
+        <div class="num">01</div>
+        <h3>Gel simples</h3>
+        <p>Uma cor, acabamento brilhante e cutícula bem cuidada. O clássico que combina com tudo.</p>
+        <div class="price">¥6.500 <small>· cerca de 60 min</small></div>
+      </article>
+      <article class="reveal d1">
+        <div class="num">02</div>
+        <h3>Nail art</h3>
+        <p>Desenho, francesinha, degradê ou pedrinhas. Traga a referência que a gente reproduz.</p>
+        <div class="price">¥8.900 <small>· cerca de 90 min</small></div>
+      </article>
+      <article class="reveal d2">
+        <div class="num">03</div>
+        <h3>Alongamento</h3>
+        <p>Comprimento e formato do seu jeito, com estrutura firme pra não quebrar à toa.</p>
+        <div class="price">¥11.000 <small>· cerca de 120 min</small></div>
+      </article>
+      <article class="reveal d3">
+        <div class="num">04</div>
+        <h3>Spa das mãos</h3>
+        <p>Esfoliação, hidratação profunda e massagem. Pra quem quer só relaxar e sair renovada.</p>
+        <div class="price">¥4.800 <small>· cerca de 45 min</small></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="gallery-sec" id="galeria">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="tag">Galeria</div>
+      <h2>Trabalhos <em>recentes</em></h2>
+      <p>Um pouquinho do que saiu daqui nas últimas semanas.</p>
+    </div>
+    <div class="gallery">
+      <figure class="reveal"><img src="img/g1.jpg" alt="Unhas com esmalte lilás"><figcaption>Lilás cremoso · gel simples</figcaption></figure>
+      <figure class="reveal d1"><img src="img/g2.jpg" alt="Cliente escolhendo cores de esmalte"><figcaption>Mais de 180 cores pra escolher</figcaption></figure>
+      <figure class="reveal d2"><img src="img/g3.jpg" alt="Manicure aplicando esmalte com cuidado"><figcaption>Acabamento feito à mão, com calma</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section id="sobre">
+  <div class="wrap about">
+    <div class="frame reveal"><img src="img/salao.jpg" alt="Interior aconchegante do estúdio"></div>
+    <div class="reveal d1">
+      <h2>Um estúdio pequeno, <em>do jeito que você gosta</em></h2>
+      <p>Nada de salão barulhento com fila. Aqui você é atendida com hora marcada, cafezinho na mesa e conversa boa em português.</p>
+      <ul>
+        <li>Material esterilizado e aberto na sua frente</li>
+        <li>Produtos japoneses de linha profissional</li>
+        <li>Reparo de unha quebrada sem custo em até 7 dias</li>
+        <li>Estacionamento na porta</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="cta-final reveal" id="agendar">
+      <h2>Seu horário está <em>te esperando</em></h2>
+      <p>Chama no WhatsApp, escolhe o serviço e o melhor dia. A confirmação chega na hora, com o endereço e onde estacionar.</p>
+      <a class="btn" href="#agendar">Chamar no WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>© 2026 Studio Luna · Hamamatsu, Shizuoka</div>
+    <div>Amostra de design criada pela SatoTech. Estúdio, preços e avaliações são fictícios, só pra demonstração. Fotos: Pexels.</div>
+  </div>
+</footer>
+
+<script>
+  const header = document.getElementById('topo');
+  addEventListener('scroll', () => header.classList.toggle('scrolled', scrollY > 24), {passive:true});
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+  }), {threshold: .15});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>

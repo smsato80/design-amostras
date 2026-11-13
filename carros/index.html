@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vetor Motors — Carros selecionados em Hamamatsu</title>
+<meta name="description" content="Amostra de design: loja de carros com curadoria, garantia e financiamento facilitado para brasileiros no Japão.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0a0a0d; --bg2:#101014; --card:#141419; --line:rgba(255,255,255,.08);
+    --text:#f4f1ea; --muted:#a7a49b; --gold:#d9a441; --gold2:#f0c569;
+    --radius:18px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;overflow-x:hidden;line-height:1.55}
+  img{max-width:100%;display:block}
+  h1,h2,h3{font-family:'Sora',sans-serif;line-height:1.12;letter-spacing:-.01em}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+  .gold{background:linear-gradient(92deg,var(--gold) 10%,var(--gold2) 55%,var(--gold) 95%);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+  /* ---------- nav de vidro ---------- */
+  header{position:fixed;inset:0 0 auto 0;z-index:50;transition:background .4s,border-color .4s;border-bottom:1px solid transparent}
+  header.scrolled{background:rgba(10,10,13,.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-color:var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+  .logo{font-family:'Sora';font-weight:800;font-size:1.15rem;letter-spacing:.02em}
+  .logo span{color:var(--gold)}
+  .nav nav{display:flex;gap:30px}
+  .nav nav a{color:var(--muted);text-decoration:none;font-size:.92rem;font-weight:500;transition:color .25s}
+  .nav nav a:hover{color:var(--text)}
+  .btn{display:inline-flex;align-items:center;gap:9px;background:var(--gold);color:#171106;font-weight:600;text-decoration:none;padding:12px 22px;border-radius:999px;font-size:.95rem;transition:transform .25s,box-shadow .25s;box-shadow:0 0 0 rgba(217,164,65,0)}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(217,164,65,.28)}
+  .btn.ghost{background:transparent;color:var(--text);border:1px solid rgba(255,255,255,.25);box-shadow:none}
+  .btn.ghost:hover{border-color:var(--gold);color:var(--gold2)}
+  .nav .btn{padding:10px 18px}
+  @media(max-width:760px){.nav nav{display:none}}
+
+  /* ---------- hero ---------- */
+  .hero{position:relative;padding:158px 0 84px;overflow:hidden}
+  .hero::before{content:"";position:absolute;inset:0;background:radial-gradient(720px 380px at 82% 8%,rgba(217,164,65,.16),transparent 62%),radial-gradient(600px 420px at 8% 90%,rgba(217,164,65,.07),transparent 60%)}
+  .hero-grid{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:52px;align-items:center}
+  @media(max-width:900px){.hero-grid{grid-template-columns:1fr}}
+  .kicker{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(217,164,65,.4);color:var(--gold2);border-radius:999px;padding:6px 14px;font-size:.8rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+  .kicker i{width:7px;height:7px;border-radius:50%;background:var(--gold);display:inline-block;animation:pulse 2s infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+  .hero h1{font-size:clamp(2.4rem,5.4vw,4.1rem);font-weight:800;margin:22px 0 18px}
+  .hero p.lead{color:var(--muted);font-size:1.08rem;max-width:34rem}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin:30px 0 38px}
+  .stats{display:flex;gap:38px;flex-wrap:wrap}
+  .stats div b{font-family:'Sora';font-size:1.55rem;display:block}
+  .stats div small{color:var(--muted);font-size:.82rem}
+  .hero-photo{position:relative}
+  .hero-photo .frame{border-radius:24px;overflow:hidden;border:1px solid var(--line);box-shadow:0 40px 80px rgba(0,0,0,.55)}
+  .hero-photo img{width:100%;height:100%;object-fit:cover;aspect-ratio:16/10.4;animation:slowzoom 16s ease-in-out infinite alternate}
+  @keyframes slowzoom{from{transform:scale(1)}to{transform:scale(1.07)}}
+  .glass-card{position:absolute;left:-16px;bottom:26px;background:rgba(18,18,22,.66);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.14);border-radius:16px;padding:14px 18px;display:flex;gap:12px;align-items:center;box-shadow:0 24px 50px rgba(0,0,0,.45)}
+  .glass-card .stars{color:var(--gold);letter-spacing:2px;font-size:.85rem}
+  .glass-card b{font-size:.95rem}
+  .glass-card small{display:block;color:var(--muted);font-size:.78rem}
+  @media(max-width:520px){.glass-card{left:10px;bottom:10px}}
+
+  /* ---------- faixa de marcas ---------- */
+  .marquee{border-block:1px solid var(--line);padding:20px 0;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
+  .marquee-track{display:flex;gap:64px;width:max-content;animation:scroll 30s linear infinite;font-family:'Sora';font-weight:700;font-size:1.05rem;color:rgba(244,241,234,.42);letter-spacing:.14em}
+  @keyframes scroll{to{transform:translateX(-50%)}}
+
+  /* ---------- seções ---------- */
+  section{padding:92px 0}
+  .sec-head{max-width:640px;margin-bottom:46px}
+  .sec-head .tag{color:var(--gold);font-weight:600;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase}
+  .sec-head h2{font-size:clamp(1.8rem,3.6vw,2.6rem);margin:12px 0 12px}
+  .sec-head p{color:var(--muted)}
+
+  .cars{display:grid;grid-template-columns:repeat(auto-fit,minmax(248px,1fr));gap:22px}
+  .car{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;transition:transform .35s,border-color .35s,box-shadow .35s}
+  .car:hover{transform:translateY(-7px);border-color:rgba(217,164,65,.45);box-shadow:0 26px 50px rgba(0,0,0,.5)}
+  .car .ph{overflow:hidden}
+  .car .ph img{aspect-ratio:1260/750;object-fit:cover;transition:transform .6s}
+  .car:hover .ph img{transform:scale(1.06)}
+  .car .body{padding:20px}
+  .car h3{font-size:1.06rem;margin-bottom:4px}
+  .chips{display:flex;gap:7px;flex-wrap:wrap;margin:10px 0 14px}
+  .chips span{font-size:.72rem;font-weight:600;color:var(--muted);border:1px solid var(--line);padding:4px 9px;border-radius:999px}
+  .price{font-family:'Sora';font-weight:800;font-size:1.5rem;color:var(--gold2)}
+  .price small{font-size:.85rem;color:var(--muted);font-family:'Inter';font-weight:500}
+  .parcela{color:var(--muted);font-size:.86rem;margin-top:2px}
+  .parcela b{color:var(--text)}
+
+  .services{background:var(--bg2);border-block:1px solid var(--line)}
+  .svc{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:22px}
+  .svc article{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:28px 24px;transition:transform .35s,border-color .35s}
+  .svc article:hover{transform:translateY(-5px);border-color:rgba(217,164,65,.45)}
+  .svc .ico{width:48px;height:48px;border-radius:14px;background:rgba(217,164,65,.13);display:grid;place-items:center;margin-bottom:16px}
+  .svc svg{width:24px;height:24px;stroke:var(--gold);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+  .svc h3{font-size:1.05rem;margin-bottom:8px}
+  .svc p{color:var(--muted);font-size:.93rem}
+
+  .quote{max-width:760px;margin:0 auto;text-align:center}
+  .quote .stars{color:var(--gold);letter-spacing:4px;font-size:1.1rem}
+  .quote blockquote{font-family:'Sora';font-size:clamp(1.25rem,2.6vw,1.7rem);font-weight:600;line-height:1.4;margin:20px 0 16px}
+  .quote figcaption{color:var(--muted);font-size:.92rem}
+
+  .cta-final{background:linear-gradient(120deg,#171208,#0d0d10 55%);border:1px solid rgba(217,164,65,.3);border-radius:26px;padding:56px 40px;text-align:center}
+  .cta-final h2{font-size:clamp(1.7rem,3.4vw,2.4rem);margin-bottom:12px}
+  .cta-final p{color:var(--muted);max-width:32rem;margin:0 auto 28px}
+
+  footer{border-top:1px solid var(--line);padding:38px 0;color:var(--muted);font-size:.86rem}
+  footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+  /* ---------- animação de entrada ---------- */
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+  .reveal.d1{transition-delay:.08s}.reveal.d2{transition-delay:.16s}.reveal.d3{transition-delay:.24s}
+  @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<header id="topo">
+  <div class="wrap nav">
+    <div class="logo">VETOR<span>MOTORS</span></div>
+    <nav>
+      <a href="#estoque">Estoque</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#depoimento">Clientes</a>
+    </nav>
+    <a class="btn" href="#contato">Falar no WhatsApp</a>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="kicker reveal in"><i></i> Hamamatsu · atendimento em português</span>
+      <h1 class="reveal in">Seu próximo carro, <span class="gold">escolhido a dedo</span> pra você.</h1>
+      <p class="lead reveal in">Curadoria de seminovos com procedência de leilão, garantia por escrito e financiamento que cabe no bolso. Sem letra miúda.</p>
+      <div class="hero-cta reveal in">
+        <a class="btn" href="#estoque">Ver o estoque</a>
+        <a class="btn ghost" href="#servicos">Como funciona</a>
+      </div>
+      <div class="stats reveal in">
+        <div><b data-count="480">0</b><small>carros entregues</small></div>
+        <div><b data-count="12">0</b><small>anos de loja</small></div>
+        <div><b data-count="98">0</b><small>% de clientes que indicam</small></div>
+      </div>
+    </div>
+    <div class="hero-photo reveal in">
+      <div class="frame"><img src="img/hero.jpg" alt="Sedan preto premium em estúdio"></div>
+      <div class="glass-card">
+        <div>
+          <div class="stars">★★★★★</div>
+          <b>4,9 no Google</b>
+          <small>312 avaliações de clientes</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>TOYOTA</span><span>HONDA</span><span>NISSAN</span><span>MAZDA</span><span>SUZUKI</span><span>SUBARU</span><span>MITSUBISHI</span><span>LEXUS</span>
+    <span>TOYOTA</span><span>HONDA</span><span>NISSAN</span><span>MAZDA</span><span>SUZUKI</span><span>SUBARU</span><span>MITSUBISHI</span><span>LEXUS</span>
+  </div>
+</div>
+
+<section id="estoque">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="tag">Estoque da semana</div>
+      <h2>Quatro carros, <span class="gold">nenhum chute</span></h2>
+      <p>Cada carro passa por revisão completa e sai com shaken de 2 anos e garantia por escrito.</p>
+    </div>
+    <div class="cars">
+      <article class="car reveal">
+        <div class="ph"><img src="img/carro1.jpg" alt="Sedan esportivo vermelho à noite"></div>
+        <div class="body">
+          <h3>Sedan GT Turbo</h3>
+          <div class="chips"><span>2021 · R3</span><span>48 mil km</span><span>Shaken 2 anos</span></div>
+          <div class="price">¥2.180.000 <small>à vista</small></div>
+          <div class="parcela">ou <b>¥32.900/mês</b> no financiamento</div>
+        </div>
+      </article>
+      <article class="car reveal d1">
+        <div class="ph"><img src="img/carro2.jpg" alt="SUV branco premium"></div>
+        <div class="body">
+          <h3>SUV Premium 4WD</h3>
+          <div class="chips"><span>2022 · R4</span><span>35 mil km</span><span>Shaken 2 anos</span></div>
+          <div class="price">¥2.940.000 <small>à vista</small></div>
+          <div class="parcela">ou <b>¥44.300/mês</b> no financiamento</div>
+        </div>
+      </article>
+      <article class="car reveal d2">
+        <div class="ph"><img src="img/carro3.jpg" alt="Sedan executivo preto, farol aceso"></div>
+        <div class="body">
+          <h3>Sedan Executivo</h3>
+          <div class="chips"><span>2020 · R2</span><span>57 mil km</span><span>Shaken 2 anos</span></div>
+          <div class="price">¥1.680.000 <small>à vista</small></div>
+          <div class="parcela">ou <b>¥25.400/mês</b> no financiamento</div>
+        </div>
+      </article>
+      <article class="car reveal d3">
+        <div class="ph"><img src="img/carro4.jpg" alt="Hatch esportivo prata em movimento"></div>
+        <div class="body">
+          <h3>Hatch Sport 1.5</h3>
+          <div class="chips"><span>2023 · R5</span><span>21 mil km</span><span>Shaken 2 anos</span></div>
+          <div class="price">¥1.290.000 <small>à vista</small></div>
+          <div class="parcela">ou <b>¥19.500/mês</b> no financiamento</div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="servicos">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="tag">Serviços</div>
+      <h2>Tudo resolvido <span class="gold">num lugar só</span></h2>
+      <p>Da escolha do carro até a placa no seu nome, a gente cuida da papelada com você.</p>
+    </div>
+    <div class="svc">
+      <article class="reveal">
+        <div class="ico"><svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg></div>
+        <h3>Financiamento facilitado</h3>
+        <p>Análise pra visto de 1 a 3 anos e opções em até 120 vezes, com resposta rápida.</p>
+      </article>
+      <article class="reveal d1">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M12 22s8-3.6 8-10V5l-8-3-8 3v7c0 6.4 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></div>
+        <h3>Garantia por escrito</h3>
+        <p>Motor e câmbio cobertos por até 3 anos, com as condições claras no contrato.</p>
+      </article>
+      <article class="reveal d2">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M7 16V8a4 4 0 0 1 4-4h6"/><path d="m13 2 4 4-4 4"/><path d="M17 8v8a4 4 0 0 1-4 4H7"/><path d="m11 22-4-4 4-4"/></svg></div>
+        <h3>Seu usado na troca</h3>
+        <p>Avaliação justa do seu carro atual, mesmo financiado, abatida na hora da compra.</p>
+      </article>
+      <article class="reveal d3">
+        <div class="ico"><svg viewBox="0 0 24 24"><circle cx="6" cy="19" r="2"/><circle cx="18" cy="19" r="2"/><path d="M8 19h8M5 19l1.7-6.2A2 2 0 0 1 8.6 11h6.8a2 2 0 0 1 1.9 1.3L19 19M7 8h4l2 3"/></svg></div>
+        <h3>Entrega onde você estiver</h3>
+        <p>Entregamos em todo o Japão, com o carro revisado, limpo e com o tanque na metade.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="depoimento">
+  <div class="wrap">
+    <figure class="quote reveal">
+      <div class="stars">★★★★★</div>
+      <blockquote>"Eu tinha medo de financiar com visto de 2 anos. Eles explicaram tudo em português, sem pressa, e saí de carro em uma semana."</blockquote>
+      <figcaption>Família Oliveira · Hamamatsu, comprou um SUV em 2026</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="cta-final reveal" id="contato">
+      <h2>Bora achar <span class="gold">seu carro</span>?</h2>
+      <p>Chama no WhatsApp, conta o que você procura e quanto quer pagar por mês. A gente responde com opções reais do estoque.</p>
+      <a class="btn" href="#contato">Chamar no WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>© 2026 Vetor Motors · Hamamatsu, Shizuoka</div>
+    <div>Amostra de design criada pela SatoTech. Loja, carros, preços e depoimento são fictícios, só pra demonstração. Fotos: Pexels.</div>
+  </div>
+</footer>
+
+<script>
+  const header = document.getElementById('topo');
+  addEventListener('scroll', () => header.classList.toggle('scrolled', scrollY > 24), {passive:true});
+
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (!e.isIntersecting) return;
+    e.target.classList.add('in');
+    e.target.querySelectorAll('[data-count]').forEach(el => {
+      const target = +el.dataset.count, t0 = performance.now();
+      (function tick(t){ const p = Math.min((t - t0) / 1200, 1);
+        el.textContent = Math.round(target * (1 - Math.pow(1 - p, 3))) + (target === 98 ? '%' : '+');
+        if (p < 1) requestAnimationFrame(tick); })(t0);
+    });
+    io.unobserve(e.target);
+  }), {threshold: .18});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
