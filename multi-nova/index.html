@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Multi Cars — Versão nova · Carros para todos os bolsos em Hamamatsu</title>
+<meta name="description" content="Versão nova de design da Multi Cars Hamamatsu: kei, compactos, família e SUV com financiamento facilitado e atendimento em vários idiomas.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#f5f8ff;--bg2:#e6eeff;--card:#fff;--line:rgba(24,58,140,.13);--ink:#17233c;--muted:#64748f;--blue:#2050c8;--blue-dark:#173d99;--yellow:#ffc61a;--radius:20px}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font-family:'Inter',sans-serif;overflow-x:hidden;line-height:1.6}
+  img{max-width:100%;display:block}
+  h1,h2,h3{font-family:'Sora',sans-serif;line-height:1.15;letter-spacing:-.01em}
+  h1 em,h2 em{font-style:normal;color:var(--blue)}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 22px}
+  header{position:fixed;inset:0 0 auto 0;z-index:50;transition:background .4s,border-color .4s;border-bottom:1px solid transparent}
+  header.scrolled{background:rgba(245,248,255,.9);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-color:var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+  .logo{font-family:'Sora';font-weight:800;font-size:1.24rem}
+  .logo span{color:var(--blue)}
+  .logo i{font-style:normal;color:var(--yellow)}
+  .nav nav{display:flex;gap:30px}
+  .nav nav a{color:var(--muted);text-decoration:none;font-size:.93rem;font-weight:500}
+  .nav nav a:hover{color:var(--ink)}
+  .btn{display:inline-flex;align-items:center;gap:9px;background:var(--blue);color:#fff;font-weight:600;text-decoration:none;padding:13px 24px;border-radius:999px;font-size:.95rem;transition:transform .25s,background .25s,box-shadow .25s}
+  .btn:hover{background:var(--blue-dark);transform:translateY(-2px);box-shadow:0 14px 28px rgba(32,80,200,.3)}
+  .btn.ghost{background:transparent;color:var(--ink);border:1px solid rgba(23,35,60,.3);box-shadow:none}
+  .btn.ghost:hover{border-color:var(--blue);color:var(--blue-dark);background:transparent}
+  .nav .btn{padding:10px 19px}
+  @media(max-width:760px){.nav nav{display:none}}
+  .hero{position:relative;padding:150px 0 84px;overflow:hidden}
+  .hero::before{content:"";position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(255,198,26,.22),transparent 65%);top:-190px;right:-140px}
+  .hero-grid{position:relative;display:grid;grid-template-columns:1.02fr .98fr;gap:54px;align-items:center}
+  @media(max-width:900px){.hero-grid{grid-template-columns:1fr}}
+  .kicker{display:inline-block;border:1px solid rgba(32,80,200,.4);color:var(--blue-dark);border-radius:999px;padding:6px 15px;font-size:.8rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;background:rgba(255,255,255,.6)}
+  .hero h1{font-size:clamp(2.35rem,5.3vw,4rem);margin:22px 0 18px}
+  .hero p.lead{color:var(--muted);font-size:1.07rem;max-width:32rem}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin:30px 0 18px}
+  .langs{display:flex;gap:8px;flex-wrap:wrap}
+  .langs span{font-size:.78rem;font-weight:700;border:1px solid var(--line);background:#fff;border-radius:999px;padding:5px 12px;color:var(--muted)}
+  .langs span b{color:var(--blue)}
+  .hero-photo{position:relative}
+  .hero-photo .frame{border-radius:26px;overflow:hidden;border:1px solid var(--line);box-shadow:0 34px 70px rgba(24,58,140,.18)}
+  .hero-photo img{width:100%;aspect-ratio:1600/1150;object-fit:cover;animation:slowzoom 16s ease-in-out infinite alternate}
+  @keyframes slowzoom{from{transform:scale(1)}to{transform:scale(1.06)}}
+  .glass-card{position:absolute;left:-12px;bottom:30px;background:rgba(255,255,255,.84);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.85);border-radius:16px;padding:14px 18px;box-shadow:0 22px 44px rgba(24,58,140,.17)}
+  .glass-card b{font-size:.95rem}
+  .glass-card small{display:block;color:var(--muted);font-size:.79rem;margin-top:2px}
+  @media(max-width:520px){.glass-card{left:8px;bottom:10px}}
+  section{padding:92px 0}
+  .sec-head{max-width:640px;margin-bottom:46px}
+  .sec-head .tag{color:var(--blue);font-weight:600;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase}
+  .sec-head h2{font-size:clamp(1.9rem,3.8vw,2.7rem);margin:12px 0 12px}
+  .sec-head p{color:var(--muted)}
+  .cars{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px}
+  .car{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;transition:transform .35s,box-shadow .35s}
+  .car:hover{transform:translateY(-7px);box-shadow:0 26px 50px rgba(24,58,140,.15)}
+  .car .ph{overflow:hidden;position:relative}
+  .car .ph img{aspect-ratio:1260/750;object-fit:cover;transition:transform .6s}
+  .car:hover .ph img{transform:scale(1.06)}
+  .car .badge{position:absolute;top:12px;left:12px;background:var(--yellow);color:#4a3800;border-radius:999px;padding:5px 12px;font-size:.74rem;font-weight:800}
+  .car .body{padding:20px}
+  .car h3{font-size:1.08rem;margin-bottom:4px}
+  .chips{display:flex;gap:7px;flex-wrap:wrap;margin:10px 0 14px}
+  .chips span{font-size:.72rem;font-weight:600;color:var(--muted);border:1px solid var(--line);padding:4px 9px;border-radius:999px}
+  .price{font-family:'Sora';font-weight:800;font-size:1.45rem;color:var(--blue-dark)}
+  .price small{font-family:'Inter';font-size:.84rem;color:var(--muted);font-weight:500}
+  .parcela{color:var(--muted);font-size:.86rem;margin-top:2px}
+  .parcela b{color:var(--ink)}
+  .svc-sec{background:var(--bg2);border-block:1px solid var(--line)}
+  .svc{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:22px}
+  .svc article{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:28px 24px;transition:transform .35s}
+  .svc article:hover{transform:translateY(-5px) rotate(-.3deg)}
+  .svc .ico{width:48px;height:48px;border-radius:14px;background:rgba(255,198,26,.22);display:grid;place-items:center;margin-bottom:15px}
+  .svc svg{width:24px;height:24px;stroke:var(--blue-dark);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+  .svc h3{font-size:1.08rem;margin-bottom:8px}
+  .svc p{color:var(--muted);font-size:.93rem}
+  .cta-final{background:linear-gradient(125deg,#dbe7ff,#f5f8ff 60%);border:1px solid rgba(32,80,200,.32);border-radius:26px;padding:56px 40px;text-align:center}
+  .cta-final h2{font-size:clamp(1.8rem,3.6vw,2.5rem);margin-bottom:12px}
+  .cta-final p{color:var(--muted);max-width:31rem;margin:0 auto 28px}
+  footer{border-top:1px solid var(--line);padding:38px 0;color:var(--muted);font-size:.86rem}
+  footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+  .reveal.d1{transition-delay:.08s}.reveal.d2{transition-delay:.16s}.reveal.d3{transition-delay:.24s}
+  @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<header id="topo">
+  <div class="wrap nav">
+    <div class="logo">Multi<span>Cars</span><i>.</i></div>
+    <nav><a href="#estoque">Estoque</a><a href="#servicos">Serviços</a><a href="#contato">Contato</a></nav>
+    <a class="btn" href="#contato">Chamar no WhatsApp</a>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="kicker reveal in">Hamamatsu · Shinbashi, na Rota 1</span>
+      <h1 class="reveal in">Carro pra todo mundo, <em>preço pra todo bolso</em>.</h1>
+      <p class="lead reveal in">Do kei econômico ao carro da família, com financiamento facilitado e atendimento no seu idioma. Chega mais, sem compromisso.</p>
+      <div class="hero-cta reveal in">
+        <a class="btn" href="#estoque">Ver o estoque</a>
+        <a class="btn ghost" href="#servicos">Financiamento e serviços</a>
+      </div>
+      <div class="langs reveal in">
+        <span>Atendimento: <b>Português</b></span><span><b>English</b></span><span><b>日本語</b></span><span><b>Tagalog / Bisaya</b></span>
+      </div>
+    </div>
+    <div class="hero-photo reveal in">
+      <div class="frame"><img src="img/hero.jpg" alt="Carro compacto branco ao pôr do sol na cidade"></div>
+      <div class="glass-card">
+        <b>Entrada facilitada</b>
+        <small>Simulação de financiamento na hora, sem custo</small>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section id="estoque">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="tag">Estoque da loja</div>
+      <h2>Escolhe o seu <em>estilo</em></h2>
+      <p>Estoque girando toda semana. Viu um que combina com você, chama no WhatsApp que a gente segura pra sua visita.</p>
+    </div>
+    <div class="cars">
+      <article class="car reveal">
+        <div class="ph"><img src="img/c1.jpg" alt="Carro compacto branco em rua urbana"><span class="badge">Mais econômico</span></div>
+        <div class="body">
+          <h3>Compacto urbano</h3>
+          <div class="chips"><span>2022 · R4</span><span>29 mil km</span><span>Shaken 2 anos</span></div>
+          <div class="price">¥898.000 <small>à vista</small></div>
+          <div class="parcela">ou <b>¥13.600/mês</b> no financiamento</div>
+        </div>
+      </article>
+      <article class="car reveal d1">
+        <div class="ph"><img src="img/c2.jpg" alt="Minivan branca estacionada na cidade"><span class="badge">Família</span></div>
+        <div class="body">
+          <h3>Minivan 7 lugares</h3>
+          <div class="chips"><span>2020 · R2</span><span>55 mil km</span><span>Shaken 2 anos</span><span>Porta deslizante</span></div>
+          <div class="price">¥1.498.000 <small>à vista</small></div>
+          <div class="parcela">ou <b>¥22.600/mês</b> no financiamento</div>
+        </div>
+      </article>
+      <article class="car reveal d2">
+        <div class="ph"><img src="img/c3.jpg" alt="SUV branco em estrada na floresta"><span class="badge">Passeio</span></div>
+        <div class="body">
+          <h3>SUV familiar</h3>
+          <div class="chips"><span>2021 · R3</span><span>41 mil km</span><span>Shaken 2 anos</span><span>4WD</span></div>
+          <div class="price">¥1.898.000 <small>à vista</small></div>
+          <div class="parcela">ou <b>¥28.600/mês</b> no financiamento</div>
+        </div>
+      </article>
+      <article class="car reveal d3">
+        <div class="ph"><img src="img/c4.jpg" alt="Minivan moderna em estrada com mata ao fundo"><span class="badge">Espaçoso</span></div>
+        <div class="body">
+          <h3>Minivan premium</h3>
+          <div class="chips"><span>2022 · R4</span><span>33 mil km</span><span>Shaken 2 anos</span><span>7 lugares</span></div>
+          <div class="price">¥2.298.000 <small>à vista</small></div>
+          <div class="parcela">ou <b>¥34.700/mês</b> no financiamento</div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="svc-sec" id="servicos">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="tag">Serviços</div>
+      <h2>A gente resolve <em>com você</em></h2>
+    </div>
+    <div class="svc">
+      <article class="reveal">
+        <div class="ico"><svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg></div>
+        <h3>Financiamento facilitado</h3>
+        <p>Análise pra vários perfis de visto e de renda, em até 120 vezes. Resposta rápida, sem enrolação.</p>
+      </article>
+      <article class="reveal d1">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M12 22s8-3.6 8-10V5l-8-3-8 3v7c0 6.4 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></div>
+        <h3>Garantia inclusa</h3>
+        <p>Todo carro sai revisado, com shaken novo e garantia por escrito. Você sai dirigindo tranquilo.</p>
+      </article>
+      <article class="reveal d2">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M7 16V8a4 4 0 0 1 4-4h6"/><path d="m13 2 4 4-4 4"/><path d="M17 8v8a4 4 0 0 1-4 4H7"/><path d="m11 22-4-4 4-4"/></svg></div>
+        <h3>Seu usado entra na troca</h3>
+        <p>Traz seu carro atual que a gente avalia na hora e abate do valor do novo, mesmo financiado.</p>
+      </article>
+      <article class="reveal d3">
+        <div class="ico"><svg viewBox="0 0 24 24"><circle cx="6" cy="19" r="2"/><circle cx="18" cy="19" r="2"/><path d="M8 19h8M5 19l1.7-6.2A2 2 0 0 1 8.6 11h6.8a2 2 0 0 1 1.9 1.3L19 19"/></svg></div>
+        <h3>Entrega na sua casa</h3>
+        <p>Comprou e não pode buscar? Entregamos na região com o carro limpo, revisado e documentado.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="cta-final reveal" id="contato">
+      <h2>Bora sair <em>de carro novo</em>?</h2>
+      <p>Chama no WhatsApp, conta quanto quer pagar por mês e a gente monta as opções do estoque pra você. Tel: 053-548-4995.</p>
+      <a class="btn" href="#contato">Chamar no WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>© 2026 Multi Cars · Shinbashi, Hamamatsu</div>
+    <div>Versão nova de design criada pela SatoTech pra avaliação. A versão atual da loja segue no endereço de sempre. Carros e preços desta página são demonstrativos. Fotos: Pexels.</div>
+  </div>
+</footer>
+
+<script>
+  const header = document.getElementById('topo');
+  addEventListener('scroll', () => header.classList.toggle('scrolled', scrollY > 24), {passive:true});
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+  }), {threshold: .15});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>

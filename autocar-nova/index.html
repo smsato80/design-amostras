@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Autocar L&D — Versão nova · Seminovos com procedência em Iwata</title>
+<meta name="description" content="Versão nova de design da Autocar L&D: seminovos com pontuação de leilão, revisão completa e garantia, em Iwata.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#f2f5f8;--bg2:#e4ebf1;--card:#fff;--line:rgba(22,50,79,.14);--ink:#16324f;--muted:#64788c;--blue:#1f5fa8;--blue-dark:#174a84;--steel:#8fb4d9;--radius:12px}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font-family:'Inter',sans-serif;overflow-x:hidden;line-height:1.6}
+  img{max-width:100%;display:block}
+  h1,h2,h3{font-family:'Archivo',sans-serif;line-height:1.15;letter-spacing:-.01em}
+  h1 em,h2 em{font-style:normal;color:var(--blue)}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 22px}
+  header{position:fixed;inset:0 0 auto 0;z-index:50;transition:background .4s,border-color .4s;border-bottom:1px solid transparent}
+  header.scrolled{background:rgba(242,245,248,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-color:var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+  .logo{font-family:'Archivo';font-weight:800;font-size:1.2rem;letter-spacing:.01em}
+  .logo span{color:var(--blue)}
+  .logo small{font-size:.62rem;font-weight:700;letter-spacing:.22em;color:var(--muted);display:block;line-height:1}
+  .nav nav{display:flex;gap:30px}
+  .nav nav a{color:var(--muted);text-decoration:none;font-size:.93rem;font-weight:500}
+  .nav nav a:hover{color:var(--ink)}
+  .btn{display:inline-flex;align-items:center;gap:9px;background:var(--blue);color:#fff;font-weight:600;text-decoration:none;padding:13px 24px;border-radius:9px;font-size:.95rem;transition:transform .25s,background .25s,box-shadow .25s}
+  .btn:hover{background:var(--blue-dark);transform:translateY(-2px);box-shadow:0 14px 28px rgba(31,95,168,.3)}
+  .btn.ghost{background:transparent;color:var(--ink);border:1px solid rgba(22,50,79,.3);box-shadow:none}
+  .btn.ghost:hover{border-color:var(--blue);color:var(--blue-dark);background:transparent}
+  .nav .btn{padding:10px 19px}
+  @media(max-width:760px){.nav nav{display:none}.logo small{display:none}}
+  .hero{position:relative;padding:150px 0 84px;overflow:hidden}
+  .hero::before{content:"";position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(143,180,217,.28),transparent 65%);top:-190px;right:-140px}
+  .hero-grid{position:relative;display:grid;grid-template-columns:1.02fr .98fr;gap:54px;align-items:center}
+  @media(max-width:900px){.hero-grid{grid-template-columns:1fr}}
+  .kicker{display:inline-block;border:1px solid rgba(31,95,168,.45);color:var(--blue-dark);border-radius:7px;padding:6px 13px;font-size:.79rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:rgba(255,255,255,.6)}
+  .hero h1{font-size:clamp(2.3rem,5.2vw,3.9rem);margin:22px 0 18px}
+  .hero p.lead{color:var(--muted);font-size:1.07rem;max-width:32rem}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin:30px 0 34px}
+  .stats{display:flex;gap:36px;flex-wrap:wrap}
+  .stats div b{font-family:'Archivo';font-size:1.5rem;display:block}
+  .stats div small{color:var(--muted);font-size:.82rem}
+  .hero-photo{position:relative}
+  .hero-photo .frame{border-radius:16px;overflow:hidden;border:1px solid var(--line);box-shadow:0 34px 70px rgba(22,50,79,.2)}
+  .hero-photo img{width:100%;aspect-ratio:1600/1150;object-fit:cover;animation:slowzoom 16s ease-in-out infinite alternate}
+  @keyframes slowzoom{from{transform:scale(1)}to{transform:scale(1.06)}}
+  .glass-card{position:absolute;left:-12px;bottom:30px;background:rgba(255,255,255,.85);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.9);border-radius:12px;padding:14px 18px;box-shadow:0 22px 44px rgba(22,50,79,.17)}
+  .glass-card b{font-size:.95rem}
+  .glass-card small{display:block;color:var(--muted);font-size:.79rem;margin-top:2px}
+  @media(max-width:520px){.glass-card{left:8px;bottom:10px}}
+  section{padding:92px 0}
+  .sec-head{max-width:640px;margin-bottom:46px}
+  .sec-head .tag{color:var(--blue);font-weight:700;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase}
+  .sec-head h2{font-size:clamp(1.85rem,3.7vw,2.65rem);margin:12px 0 12px}
+  .sec-head p{color:var(--muted)}
+  .cars{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:22px}
+  .car{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;transition:transform .35s,box-shadow .35s}
+  .car:hover{transform:translateY(-7px);box-shadow:0 26px 50px rgba(22,50,79,.15)}
+  .car .ph{overflow:hidden;position:relative}
+  .car .ph img{aspect-ratio:1260/750;object-fit:cover;transition:transform .6s}
+  .car:hover .ph img{transform:scale(1.06)}
+  .car .score{position:absolute;top:12px;right:12px;background:rgba(255,255,255,.88);backdrop-filter:blur(8px);border-radius:8px;padding:5px 11px;font-size:.74rem;font-weight:800;color:var(--blue-dark)}
+  .car .body{padding:20px}
+  .car h3{font-size:1.1rem;margin-bottom:4px}
+  .chips{display:flex;gap:7px;flex-wrap:wrap;margin:10px 0 14px}
+  .chips span{font-size:.72rem;font-weight:600;color:var(--muted);border:1px solid var(--line);padding:4px 9px;border-radius:999px}
+  .price{font-family:'Archivo';font-weight:800;font-size:1.45rem;color:var(--blue-dark)}
+  .price small{font-family:'Inter';font-size:.84rem;color:var(--muted);font-weight:500}
+  .parcela{color:var(--muted);font-size:.86rem;margin-top:2px}
+  .parcela b{color:var(--ink)}
+  .proc-sec{background:var(--bg2);border-block:1px solid var(--line)}
+  .about{display:grid;grid-template-columns:.95fr 1.05fr;gap:52px;align-items:center}
+  @media(max-width:900px){.about{grid-template-columns:1fr}}
+  .about .frame{border-radius:16px;overflow:hidden;border:1px solid var(--line);box-shadow:0 30px 60px rgba(22,50,79,.16)}
+  .about img{aspect-ratio:1260/750;object-fit:cover;width:100%}
+  .about h2{font-size:clamp(1.85rem,3.6vw,2.55rem);margin-bottom:16px}
+  .about p{color:var(--muted);margin-bottom:14px}
+  .about ul{list-style:none}
+  .about li{padding:9px 0;border-bottom:1px dashed var(--line);font-size:.96rem;display:flex;gap:10px}
+  .about li::before{content:"✓";color:var(--blue);font-weight:800}
+  .svc{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:22px}
+  .svc article{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:28px 24px;transition:transform .35s,border-color .35s}
+  .svc article:hover{transform:translateY(-5px);border-color:rgba(31,95,168,.45)}
+  .svc .num{font-family:'Archivo';font-weight:800;color:var(--steel);font-size:1.05rem}
+  .svc h3{font-size:1.1rem;margin:10px 0 8px}
+  .svc p{color:var(--muted);font-size:.93rem}
+  .cta-final{background:linear-gradient(125deg,#d7e6f5,#f2f5f8 60%);border:1px solid rgba(31,95,168,.35);border-radius:16px;padding:56px 40px;text-align:center}
+  .cta-final h2{font-size:clamp(1.75rem,3.5vw,2.45rem);margin-bottom:12px}
+  .cta-final p{color:var(--muted);max-width:31rem;margin:0 auto 28px}
+  footer{border-top:1px solid var(--line);padding:38px 0;color:var(--muted);font-size:.86rem}
+  footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+  .reveal.d1{transition-delay:.08s}.reveal.d2{transition-delay:.16s}
+  @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<header id="topo">
+  <div class="wrap nav">
+    <div class="logo">AUTOCAR <span>L&D</span><small>IWATA · SEMINOVOS</small></div>
+    <nav><a href="#estoque">Estoque</a><a href="#procedencia">Procedência</a><a href="#servicos">Serviços</a></nav>
+    <a class="btn" href="#contato">Falar com a Autocar</a>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="kicker reveal in">Iwata · pátio próprio e oficina parceira</span>
+      <h1 class="reveal in">Seminovo com procedência <em>comprovada</em>, não prometida.</h1>
+      <p class="lead reveal in">Cada carro da Autocar tem folha de leilão, revisão documentada e garantia por escrito. Você compra sabendo exatamente o que está levando.</p>
+      <div class="hero-cta reveal in">
+        <a class="btn" href="#estoque">Ver o estoque</a>
+        <a class="btn ghost" href="#procedencia">Como conferimos</a>
+      </div>
+      <div class="stats reveal in">
+        <div><b>100 itens</b><small>checados por carro</small></div>
+        <div><b>4.0+</b><small>pontuação mínima de leilão</small></div>
+        <div><b>12 meses</b><small>de garantia disponível</small></div>
+      </div>
+    </div>
+    <div class="hero-photo reveal in">
+      <div class="frame"><img src="img/hero.jpg" alt="Carros alinhados em pátio de concessionária"></div>
+      <div class="glass-card">
+        <b>Revisão documentada</b>
+        <small>Relatório completo entregue junto com o carro</small>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section id="estoque">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="tag">Estoque conferido</div>
+      <h2>Preço e pontuação <em>na cara</em></h2>
+      <p>Sem preço "sob consulta". O card mostra o valor, a parcela e a pontuação de leilão do carro.</p>
+    </div>
+    <div class="cars">
+      <article class="car reveal">
+        <div class="ph"><img src="img/c1.jpg" alt="Sedã prata parado em rua da cidade"><span class="score">Leilão 4.5</span></div>
+        <div class="body">
+          <h3>Sedã executivo 2.0</h3>
+          <div class="chips"><span>2020 · R2</span><span>49 mil km</span><span>Shaken 2 anos</span></div>
+          <div class="price">¥1.798.000 <small>à vista</small></div>
+          <div class="parcela">ou <b>¥27.100/mês</b> no financiamento</div>
+        </div>
+      </article>
+      <article class="car reveal d1">
+        <div class="ph"><img src="img/c2.jpg" alt="Sedã cinza em movimento na cidade"><span class="score">Leilão 4.0</span></div>
+        <div class="body">
+          <h3>Sedã esportivo</h3>
+          <div class="chips"><span>2019 · R1</span><span>58 mil km</span><span>Shaken 2 anos</span></div>
+          <div class="price">¥1.398.000 <small>à vista</small></div>
+          <div class="parcela">ou <b>¥21.100/mês</b> no financiamento</div>
+        </div>
+      </article>
+      <article class="car reveal d2">
+        <div class="ph"><img src="img/c3.jpg" alt="Fileira de SUVs novos em pátio"><span class="score">Leilão 4.5</span></div>
+        <div class="body">
+          <h3>SUV médio 4WD</h3>
+          <div class="chips"><span>2021 · R3</span><span>44 mil km</span><span>Shaken 2 anos</span></div>
+          <div class="price">¥2.098.000 <small>à vista</small></div>
+          <div class="parcela">ou <b>¥31.700/mês</b> no financiamento</div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="proc-sec" id="procedencia">
+  <div class="wrap about">
+    <div class="frame reveal"><img src="img/at.jpg" alt="Casal conversando com vendedor dentro da loja"></div>
+    <div class="reveal d1">
+      <h2>Procedência se <em>mostra</em>, não se fala</h2>
+      <p>Na Autocar, a folha do leilão e o relatório da revisão ficam sobre a mesa durante a negociação. Pergunte o que quiser:</p>
+      <ul>
+        <li>Folha de leilão original, com tradução dos pontos principais</li>
+        <li>Relatório da revisão de 100 itens, assinado pelo mecânico</li>
+        <li>Histórico de manutenção quando o carro tem registro</li>
+        <li>Test drive e avaliação do seu usado sem compromisso</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="servicos">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="tag">Serviços</div>
+      <h2>Compra completa, <em>num lugar só</em></h2>
+    </div>
+    <div class="svc">
+      <article class="reveal"><div class="num">01</div><h3>Financiamento</h3><p>Simulação com as principais financeiras, inclusive pra quem tem visto de curta duração. Resposta em até um dia útil.</p></article>
+      <article class="reveal d1"><div class="num">02</div><h3>Garantia estendida</h3><p>Planos de até 12 meses pra motor e câmbio, com as coberturas explicadas item por item antes de assinar.</p></article>
+      <article class="reveal d2"><div class="num">03</div><h3>Documentação e entrega</h3><p>Transferência, placa e shaken resolvidos pela loja. Você busca o carro pronto pra rodar.</p></article>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="cta-final reveal" id="contato">
+      <h2>Quer ver <em>de perto</em>?</h2>
+      <p>Chama no WhatsApp e marca a visita. Separamos o carro do seu interesse já revisado e com a documentação na mesa.</p>
+      <a class="btn" href="#contato">Chamar no WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>© 2026 Autocar L&D · Iwata, Shizuoka</div>
+    <div>Versão nova de design criada pela SatoTech pra avaliação. A versão atual da loja segue no endereço de sempre. Carros e preços desta página são demonstrativos. Fotos: Pexels.</div>
+  </div>
+</footer>
+
+<script>
+  const header = document.getElementById('topo');
+  addEventListener('scroll', () => header.classList.toggle('scrolled', scrollY > 24), {passive:true});
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+  }), {threshold: .15});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
